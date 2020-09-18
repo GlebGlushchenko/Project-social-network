@@ -14,7 +14,7 @@ const Nav = () => {
             <li className="nav__item nav__item--active">Profifle.</li>
             <li className="nav__item">Messages.</li>
             <li className="nav__item">News.</li>
-            <li className="nav__item">Music.</li>
+            <li className="nav__item">Users.</li>
           </ul>
           <img src={logo2} alt="" />
         </div>
