@@ -9,10 +9,10 @@ import Users from './components/Users';
 function App() {
   return (
     <div className="App">
-      <Users />
       <Nav />
+      {/* <Users /> */}
       {/* <Messages /> */}
-      {/* <Profile /> */}
+      <Profile />
       <Footer />
     </div>
   );

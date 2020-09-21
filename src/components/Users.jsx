@@ -4,7 +4,7 @@ import userAvatar from '../assets/img/user.png';
 
 const Users = () => {
   return (
-    <div className="users__wrapper">
+    <section className="users__wrapper">
       <h3 className="users__title">Users</h3>
       <div className="container">
         <div className="users">
@@ -75,7 +75,7 @@ const Users = () => {
           <div className="paginator__item">...</div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,57 +1,4 @@
-.App {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  font-size: 30px;
-  font-weight: 300;
-  flex-direction: column;
-}
-
-.footer__wrapper {
-  position: absolute;
-  bottom: 0;
-  background-color: #d9d9d9;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90px;
-  font-size: 20px;
-
-  div {
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-
-    a {
-      margin-left: 10px;
-      &::after {
-        transition: width 0.2s ease-in-out;
-        display: block;
-        content: '';
-        width: 0;
-        height: 1px;
-        background-color: #333;
-      }
-
-      &:hover {
-        &::after {
-          width: 100%;
-        }
-      }
-    }
-
-    img {
-      margin-left: 30px;
-    }
-  }
-}
-
-.profile__logo {
-  margin-bottom: 30px;
-  font-size: 25px;
-}
+//Nav
 
 .nav__wrapper {
   position: absolute;
@@ -61,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 80px;
 }
 
 .nav {
@@ -82,7 +29,7 @@
     width: 0;
     content: '';
     height: 2px;
-    background-color: black;
+    background-color: rgb(97, 97, 97);
     display: block;
   }
   &:hover {
@@ -96,13 +43,13 @@
       width: 100%;
       content: '';
       height: 2px;
-      background-color: black;
+      background-color: rgb(97, 97, 97);
       display: block;
     }
   }
 }
 
-.logo {
+.nav__logo {
   color: #333;
   text-decoration: none;
   transition: opacity 0.2s ease-in-out;
@@ -112,16 +59,71 @@
   }
 }
 
+.nav__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__login-avatar {
+  transition: opacity 0.2s ease-in-out;
+  border-radius: 30px;
+  background-color: #fff;
+  padding: 30px;
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    border-radius: 30px;
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.nav__login {
+  display: flex;
+  align-items: center;
+}
+
+.nav__login-name {
+  cursor: pointer;
+
+  &::after {
+    transition: width 0.2s ease-in-out;
+    display: block;
+    content: '';
+    height: 2px;
+    width: 0;
+    background-color: rgb(97, 97, 97);
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+// /Nav
+
+//Profile
+
+.profile__logo {
+  margin-bottom: 30px;
+  font-size: 25px;
+}
+
 .profile__wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
-}
-
-.container {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1200px;
 }
 
 .profile__content {
@@ -132,11 +134,11 @@
   width: 50%;
 }
 
-.description__list {
+.profile__description-list {
   list-style: none;
 }
 
-.avatar {
+.profile__avatar {
   width: 300px;
   height: 300px;
 
@@ -146,6 +148,12 @@
   align-items: center;
   margin: 30px 0;
   border-radius: 3px;
+
+  img {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 80px;
+  }
 }
 
 .profile__content__wrapper {
@@ -166,31 +174,10 @@
   overflow: auto;
   height: 220px;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
+  min-width: 300px;
   padding: 10px;
   padding-right: 50px;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #d9d9d9;
-  border-radius: 3px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #b8b8b8;
-  border-radius: 5px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #868686;
 }
 
 .profile__post-item {
@@ -220,6 +207,7 @@
   img {
     position: absolute;
     top: 10px;
+    border-radius: 30px;
   }
 }
 
@@ -259,15 +247,11 @@
   font-size: 30px;
 }
 
-.control__post {
+.profile__control-post {
   margin-bottom: 30px;
 }
 
-.nav__inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+// /Profile
 
 //Massages
 
@@ -305,7 +289,7 @@
         display: block;
         height: 2px;
         width: 0;
-        background-color: #333;
+        background-color: rgb(97, 97, 97);
         position: absolute;
         bottom: 0;
         border-radius: 3px;
@@ -405,6 +389,22 @@
   }
 }
 
+.massages__item-avatar {
+  img {
+    border-radius: 30px;
+  }
+}
+
+// /Massages
+
+//Users
+
+.user__img {
+  img {
+    border-radius: 30px;
+  }
+}
+
 .avatar__users {
   margin-right: 30px;
   display: flex;
@@ -417,9 +417,11 @@
   font-size: 0;
   width: 50px;
   height: 50px;
-}
 
-//Users
+  img {
+    border-radius: 30px;
+  }
+}
 
 .users__wrapper {
   width: 100%;
@@ -458,13 +460,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
 
   &::after {
     display: block;
     content: '';
-    background-color: #333;
+    background-color: rgb(97, 97, 97);
     opacity: 0.2;
     height: 2px;
     width: 0;
@@ -479,7 +480,7 @@
   }
 
   span {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   &__img {
@@ -493,11 +494,13 @@
     font-size: 0;
     width: 70px;
     height: 70px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }
 
-//paginator
+// /Users
+
+//Paginator
 
 .paginator {
   display: flex;
@@ -513,7 +516,7 @@
     &::after {
       display: block;
       content: '';
-      background-color: #333;
+      background-color: rgb(97, 97, 97);
       height: 2px;
       width: 0;
       border-radius: 3px;
@@ -524,7 +527,7 @@
       &::after {
         display: block;
         content: '';
-        background-color: #333;
+        background-color: rgb(97, 97, 97);
         height: 2px;
         width: 100%;
         border-radius: 3px;
@@ -539,3 +542,49 @@
     }
   }
 }
+
+// / Paginator
+
+//Footer
+
+.footer__wrapper {
+  position: absolute;
+  bottom: 0;
+  background-color: #d9d9d9;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  font-size: 20px;
+
+  div {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-left: 10px;
+      &::after {
+        transition: width 0.2s ease-in-out;
+        display: block;
+        content: '';
+        width: 0;
+        height: 1px;
+        background-color: rgb(97, 97, 97);
+      }
+
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    img {
+      margin-left: 30px;
+    }
+  }
+}
+
+// /Fooret
