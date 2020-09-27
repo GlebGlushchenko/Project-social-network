@@ -1,0 +1,43 @@
+//Footer
+
+.footer__wrapper {
+  position: absolute;
+  bottom: 0;
+  background-color: #d9d9d9;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  font-size: 16px;
+
+  div {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-left: 10px;
+      &::after {
+        transition: width 0.2s ease-in-out;
+        display: block;
+        content: '';
+        width: 0;
+        height: 1px;
+        background-color: rgb(97, 97, 97);
+      }
+
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    img {
+      margin-left: 30px;
+    }
+  }
+}
+
+// /Fooret

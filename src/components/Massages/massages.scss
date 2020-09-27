@@ -1,0 +1,144 @@
+//Massages
+
+.massages {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 100px;
+
+  &__users {
+    width: 50%;
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 10px;
+
+    &-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: auto;
+      height: 400px;
+    }
+
+    &-item {
+      margin-bottom: 30px;
+      margin-top: 30px;
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+
+      &::after {
+        transition: width 0.2s ease-in-out;
+        content: '';
+        display: block;
+        height: 2px;
+        width: 0;
+        background-color: rgb(97, 97, 97);
+        position: absolute;
+        bottom: 0;
+        border-radius: 3px;
+      }
+
+      &--active {
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__content {
+    width: 50%;
+    position: relative;
+    padding: 10px;
+
+    &__inner {
+      height: 400px;
+      overflow: auto;
+    }
+  }
+
+  &__controle {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+
+  &__input {
+    height: 50px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-radius: 3px;
+    margin-right: 5px;
+    padding: 10px;
+  }
+
+  &__btn {
+    height: 50px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(223, 223, 223);
+    }
+  }
+}
+
+.massages__section {
+  width: 100%;
+  text-align: center;
+
+  h3 {
+    margin-bottom: 50px;
+    font-size: 30px;
+  }
+}
+
+.massages__item {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 10 5888888555оpx;
+  }
+
+  &-avatar {
+    margin: 0px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background-color: #d9d9d9;
+    padding: 30px;
+    color: transparent;
+    font-size: 0;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.massages__item-avatar {
+  img {
+    border-radius: 30px;
+  }
+}
+
+// /Massages

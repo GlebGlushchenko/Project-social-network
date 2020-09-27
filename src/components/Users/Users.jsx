@@ -1,6 +1,6 @@
 import React from 'react';
 
-import userAvatar from '../assets/img/user.png';
+import userAvatar from '../../assets/img/user.png';
 
 const Users = () => {
   return (

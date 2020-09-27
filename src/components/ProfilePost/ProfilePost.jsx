@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from './Post';
+import Post from '../ProfilePost/Post';
 
 const ProfilePost = () => {
   return (
@@ -11,10 +11,8 @@ const ProfilePost = () => {
       </div>
       <div className="profile__post-wrapper">
         <ul className="profile__post-list">
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          <Post message="Hi how are you?" />
+          <Post message="Its my first post" />
         </ul>
       </div>
     </div>

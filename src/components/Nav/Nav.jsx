@@ -1,7 +1,8 @@
 import React from 'react';
-import logoNav from '../assets/img/share.png';
+import { Link, NavLink } from 'react-router-dom';
+import logoNav from '../../assets/img/share.png';
 
-import userAvatar from '../assets/img/user.png';
+import userAvatar from '../../assets/img/user.png';
 
 const Nav = () => {
   return (
@@ -12,10 +13,18 @@ const Nav = () => {
             <img width="60px" src={logoNav} alt="" />
           </a>
           <ul className="nav">
-            <li className="nav__item nav__item--active">Profifle.</li>
-            <li className="nav__item">Messages.</li>
-            <li className="nav__item">News.</li>
-            <li className="nav__item">Users.</li>
+            <li className="nav__item">
+              <NavLink to="/profile">Profile.</NavLink>
+            </li>
+            <li className="nav__item">
+              <NavLink to="/massages">Messages.</NavLink>
+            </li>
+            <li className="nav__item">
+              <NavLink to="/users">Users.</NavLink>
+            </li>
+            <li className="nav__item">
+              <a href="">News.</a>
+            </li>
           </ul>
 
           <div className="nav__login">
