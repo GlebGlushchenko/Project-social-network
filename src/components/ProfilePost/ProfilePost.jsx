@@ -13,6 +13,7 @@ const ProfilePost = () => {
         <ul className="profile__post-list">
           <Post message="Hi how are you?" />
           <Post message="Its my first post" />
+          <Post message="Hi" />
         </ul>
       </div>
     </div>

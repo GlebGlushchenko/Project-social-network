@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Route path="/profile" component={Profile} />
+      <Route exact path="/profile" component={Profile} />
       <Route path="/users" component={Users} />
       <Route path="/massages" component={Messages} />
       <Footer />

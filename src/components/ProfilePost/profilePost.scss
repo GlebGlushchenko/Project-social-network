@@ -14,15 +14,36 @@
   height: 220px;
   width: 100%;
   max-width: 500px;
-  min-width: 300px;
+  min-width: 400px;
   padding: 10px;
 }
 
+.profile__post-text {
+  flex: 1;
+  &::after {
+    transition: width 0.2s ease-in-out;
+    display: block;
+    width: 0;
+    height: 2px;
+    content: '';
+    background-color: #333;
+    margin-top: 10px;
+  }
+}
+
 .profile__post-item {
+  cursor: pointer;
   font-size: 18px;
   margin-bottom: 30px;
   display: flex;
   align-items: center;
+  &:hover {
+    .profile__post-text {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .profile__post-wrapper {
@@ -95,15 +116,25 @@
   cursor: pointer;
   margin: 0px 10px;
 
+  path {
+    fill: #c9c9c9;
+  }
+
   &:active {
     transform: translateY(-3px);
   }
 
   &--acteve {
+    pointer-events: none;
     path {
-      fill: red;
+      fill: #333;
     }
   }
+}
+
+.like__wrapper {
+  display: flex;
+  align-items: center;
 }
 
 // /Post
