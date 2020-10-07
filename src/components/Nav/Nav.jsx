@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logoNav from '../../assets/img/share.png';
 
 import userAvatar from '../../assets/img/user.png';
@@ -9,9 +9,9 @@ const Nav = () => {
     <div className="nav__wrapper">
       <div className="container">
         <div className="nav__inner">
-          <a href="#" className="nav__logo">
+          <NavLink to="profile" className="nav__logo">
             <img width="60px" src={logoNav} alt="" />
-          </a>
+          </NavLink>
           <ul className="nav">
             <li className="nav__item">
               <NavLink to="/profile">Profile.</NavLink>
