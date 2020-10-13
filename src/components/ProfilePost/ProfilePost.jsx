@@ -14,6 +14,7 @@ const ProfilePost = () => {
           <Post message="Hi how are you?" />
           <Post message="Its my first post" />
           <Post message="Hi" />
+          <Post message='Its mys firssdt post' />
         </ul>
       </div>
     </div>

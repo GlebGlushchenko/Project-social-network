@@ -1,5 +1,5 @@
 import React from 'react';
-import logo2 from '../../assets/img/myLogo2.png';
+import logoFooter from '../../assets/img/logoFooter.png';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         <a href="https://github.com/GlebGlushchenko" target="blank">
           'Gleb'
         </a>
-        <img width="50px" src={logo2} alt="" />
+        <img width="65px" src={logoFooter} alt="" />
       </div>
     </div>
   );

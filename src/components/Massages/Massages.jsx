@@ -6,6 +6,7 @@ import userAvatar from '../../assets/img/user.png';
 import MassageItemLeft from './MassageItemLeft';
 import MassagesItme from './MassagesItem';
 
+
 const Messages = () => {
   return (
     <section className="massages__section">
@@ -14,11 +15,21 @@ const Messages = () => {
         <div className="massages">
           <div className="massages__users">
             <ul className="massages__users-list">
-              <MassageUser userName="Gleb" />
-              <MassageUser userName="Vova" />
-              <MassageUser userName="Artem" />
-              <MassageUser userName="Zakssss" />
-              <MassageUser userName="Cheed" />
+              <NavLink className="massages__users-link" to='/massages/1'>
+                <MassageUser userName="Gleb" />
+              </NavLink>
+              <NavLink className="massages__users-link" to='/massages/2'>
+                <MassageUser userName="Vova" />
+              </NavLink>
+              <NavLink className="massages__users-link" to='/massages/3'>
+                <MassageUser userName="Artem" />
+              </NavLink>
+              <NavLink className="massages__users-link" to='/massages/4'>
+                <MassageUser userName="Zakssss" />
+              </NavLink>
+              <NavLink className="massages__users-link" to='/massages/5'>
+                <MassageUser userName="Cheed" />
+              </NavLink>
             </ul>
           </div>
           <div className="massages__content">

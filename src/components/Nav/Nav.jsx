@@ -5,6 +5,7 @@ import userAvatar from '../../assets/img/user.png';
 
 
 
+
 const Nav = () => {
   return (
     <div className="nav__wrapper">
@@ -13,7 +14,7 @@ const Nav = () => {
           <NavLink to="profile" className="nav__logo">
             <img width="60px" src={logoNav} alt="" />
           </NavLink>
-          <ul className="nav">
+             <ul className="nav">
             <li className="nav__item">
               <NavLink to="/profile">Profile.</NavLink>
             </li>
