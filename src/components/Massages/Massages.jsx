@@ -6,13 +6,7 @@ import MassageItemLeft from './MassageItemLeft';
 import MassagesItme from './MassagesItem';
 
 const Messages = () => {
-  const [masseagesUsers, setMassagesUsers] = React.useState([
-    'Gleb',
-    'Vova',
-    'Artem',
-    'Zakssss',
-    'Cheed',
-  ]);
+  const masseagesUsers = ['Gleb', 'Vova', 'Artem', 'Zakssss', 'Cheed'];
 
   return (
     <section className="massages__section">
