@@ -2,11 +2,18 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import MassageUser from './MessageUser';
 
-import userAvatar from '../../assets/img/user.png';
 import MassageItemLeft from './MassageItemLeft';
 import MassagesItme from './MassagesItem';
 
 const Messages = () => {
+  const [masseagesUsers, setMassagesUsers] = React.useState([
+    'Gleb',
+    'Vova',
+    'Artem',
+    'Zakssss',
+    'Cheed',
+  ]);
+
   return (
     <section className="massages__section">
       <h3>Massages</h3>
@@ -14,11 +21,11 @@ const Messages = () => {
         <div className="massages">
           <div className="massages__users">
             <ul className="massages__users-list">
-              <MassageUser userName="Gleb" />
-              <MassageUser userName="Vova" />
-              <MassageUser userName="Artem" />
-              <MassageUser userName="Zakssss" />
-              <MassageUser userName="Cheed" />
+              {masseagesUsers.map((user, index) => (
+                <NavLink className="massages__users-link" key={index} to={`/massages/${index + 1}`}>
+                  <MassageUser userName={user} />
+                </NavLink>
+              ))}
             </ul>
           </div>
           <div className="massages__content">
