@@ -3,8 +3,6 @@ import { NavLink } from 'react-router-dom';
 import logoNav from '../../assets/img/share.png';
 import userAvatar from '../../assets/img/user.png';
 
-
-
 const Nav = () => {
   return (
     <div className="nav__wrapper">
@@ -24,16 +22,17 @@ const Nav = () => {
               <NavLink to="/users">Users.</NavLink>
             </li>
             <li className="nav__item">
-              <a href="">News.</a>
+              <NavLink to="/news">News.</NavLink>
             </li>
           </ul>
 
-          <div className="nav__login">
+          <NavLink className="nav__login" to="login">
             <div className="nav__login-avatar">
               <img width="40px" src={userAvatar} alt="Avatar" />
             </div>
             <div className="nav__login-name">Gleb</div>
-          </div>
+          </NavLink>
+
           {/* <img src={logoNav2} alt="" /> */}
         </div>
       </div>

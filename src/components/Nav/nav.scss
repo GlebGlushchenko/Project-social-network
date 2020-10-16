@@ -83,27 +83,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 
   img {
     border-radius: 30px;
     width: 40px;
     height: 40px;
   }
-
-  &:hover {
-    opacity: 0.6;
-  }
 }
 
 .nav__login {
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
   display: flex;
   align-items: center;
+
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+
+    .nav__login-name {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .nav__login-name {
-  cursor: pointer;
-
   &::after {
     transition: width 0.2s ease-in-out;
     display: block;

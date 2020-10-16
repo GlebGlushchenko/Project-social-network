@@ -1,0 +1,51 @@
+.login__form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login__form-login {
+  margin-bottom: 30px;
+  padding: 10px;
+  border: none;
+}
+
+.login__form-passwd {
+  margin-bottom: 30px;
+  padding: 10px;
+  border: none;
+}
+
+.login__form-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.login__form-check {
+  margin-right: 10px;
+}
+
+.login__form-btn {
+  border: none;
+  padding: 10px 0px;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rgb(165, 165, 165);
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
