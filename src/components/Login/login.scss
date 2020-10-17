@@ -2,6 +2,46 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+
+  padding: 50px;
+
+  &::after {
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+    content: '';
+    border: 2px solid rgb(109, 109, 109);
+    width: 400px;
+    height: 450px;
+    position: absolute;
+    top: -50px;
+    border-radius: 3px;
+    z-index: -1;
+  }
+
+  &::before {
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+    content: '';
+    border: 2px solid rgb(77, 77, 77);
+    width: 400px;
+    height: 450px;
+    position: absolute;
+    top: -30px;
+    left: -56px;
+    border-radius: 3px;
+    z-index: -1;
+    box-shadow: 5px 1px 10px rgb(77, 77, 77);
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+    &::before {
+      opacity: 1;
+    }
+  }
 }
 
 .login__form-login {

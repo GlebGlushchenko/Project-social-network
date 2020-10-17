@@ -2,41 +2,98 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import MassageUser from './MessageUser';
 
-import MassageItemLeft from './MassageItemLeft';
 import MassagesItme from './MassagesItem';
 
 const Messages = () => {
-  const masseagesUsers = ['Gleb', 'Vova', 'Artem', 'Zakssss', 'Cheed'];
+  const masseagesUsers = [
+    { name: 'Gleb', id: 1 },
+    { name: 'Vova', id: 2 },
+    { name: 'Artem', id: 3 },
+    { name: 'Zakssss', id: 4 },
+    { name: 'Cheed', id: 5 },
+  ];
+
+  const [massagesText, setMassagesText] = React.useState([
+    { text: 'Hi' },
+    { text: 'Wellcome' },
+    { text: 'lorem ipsum' },
+    { text: 'Lorem Ipsum has been' },
+    { text: 'Bi' },
+    { text: 'lorem ipsum' },
+  ]);
+
+  const [massagText, setMassagText] = React.useState();
+
+  const toggleText = (e) => {
+    const val = e.target.value;
+    setMassagText(val.trim());
+  };
+
+  const sendMassage = () => {
+    if (massagText) {
+      setMassagesText((prevState) => [...prevState, { text: massagText }]);
+      setMassagText('');
+    } else {
+      alert('Введите текст');
+    }
+  };
+
+  const handleKeyUp = (e) => {
+    if (e.keyCode === 13) {
+      sendMassage();
+    }
+  };
+
+  const removeMassage = (index) => {
+    setMassagesText((prevState) =>
+      prevState.filter((_, curIndex) => {
+        if (index !== curIndex) {
+          return true;
+        }
+        return false;
+      }),
+    );
+  };
 
   return (
     <section className="massages__section">
-      <h3>Massages</h3>
+      <h3>.Massages</h3>
       <div className="container">
         <div className="massages">
           <div className="massages__users">
             <ul className="massages__users-list">
-              {masseagesUsers.map((user, index) => (
-                <NavLink className="massages__users-link" key={index} to={`/massages/${index + 1}`}>
-                  <MassageUser userName={user} />
+              {masseagesUsers.map((user) => (
+                <NavLink className="massages__users-link" key={user.id} to={`/massages/${user.id}`}>
+                  <MassageUser userName={user.name} />
                 </NavLink>
               ))}
             </ul>
           </div>
           <div className="massages__content">
             <div className="massages__content__inner">
-              <MassageItemLeft massageText="Hi" />
-
-              <MassagesItme massageText="Lorem Ipsum has been" />
-
-              <MassageItemLeft massageText="Wellcome" />
-
-              <MassagesItme massageText="Bi" />
-
-              <MassageItemLeft massageText="lorem ipsum" />
+              {massagesText.map((text, index) => (
+                <MassagesItme
+                  index={index}
+                  removeMassage={removeMassage}
+                  userName={'Name'}
+                  key={index}
+                  massageText={text.text}
+                />
+              ))}
             </div>
+
             <div className="massages__controle">
-              <input className="massages__input" placeholder="enter massage text..." type="text" />
-              <button className="massages__btn">Send</button>
+              <input
+                onKeyUp={handleKeyUp}
+                value={massagText}
+                onChange={toggleText}
+                className="massages__input"
+                placeholder="enter massage text..."
+                type="text"
+              />
+              <button onClick={sendMassage} className="massages__btn">
+                Send
+              </button>
             </div>
           </div>
         </div>
@@ -44,5 +101,4 @@ const Messages = () => {
     </section>
   );
 };
-
 export default Messages;

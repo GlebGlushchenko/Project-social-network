@@ -5,7 +5,7 @@ import userAvatar from '../../assets/img/user.png';
 const Users = () => {
   return (
     <section className="users__wrapper">
-      <h3 className="users__title">Users</h3>
+      <h3 className="users__title">.Users</h3>
       <div className="container">
         <div className="users">
           <div className="users__left-colum">

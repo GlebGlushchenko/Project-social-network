@@ -103,4 +103,10 @@
   }
 }
 
+@media screen and (max-width: 425px) {
+  .avatar__users {
+    display: none;
+  }
+}
+
 // /Users

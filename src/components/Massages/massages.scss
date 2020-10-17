@@ -131,14 +131,21 @@
 }
 
 .massages__item {
+  &:hover {
+    .crossDelete {
+      opacity: 1;
+    }
+  }
+
+  align-items: center;
+  justify-content: space-between;
   margin: 30px 0px;
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-bottom: 40px;
 
   &:last-child {
-    margin-bottom: 10 5888888555оpx;
+    margin-bottom: 10px;
   }
 
   &-avatar {
@@ -163,6 +170,7 @@
 }
 
 .massages__item-avatar {
+  position: relative;
   img {
     border-radius: 30px;
     width: 40px;
@@ -176,5 +184,43 @@
     height: 40px;
   }
 }
+
+.massages__name {
+  position: absolute;
+  bottom: -20px;
+  color: #333;
+}
+
+// @Media
+
+@media screen and (max-width: 768px) {
+  .massages__controle {
+    left: 50%;
+    bottom: -70px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .massages__section h3 {
+    font-size: 25px;
+  }
+
+  .massages__item-avatar {
+    display: none;
+  }
+
+  .massages__users {
+    width: 30%;
+  }
+
+  .massages__content {
+    width: 70%;
+  }
+
+  .massages__users {
+    border: none;
+  }
+}
+// /@Media
 
 // /Massages

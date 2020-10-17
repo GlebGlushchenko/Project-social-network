@@ -1,7 +1,8 @@
 import React from 'react';
 import userAvatar from '../../assets/img/user.png';
+import cross from '../../assets/img/cross.png';
 
-const Post = ({ message }) => {
+const Post = ({ message, removePost, index }) => {
   const [like, setLike] = React.useState(0);
 
   const onLike = () => {
@@ -10,12 +11,21 @@ const Post = ({ message }) => {
     }
   };
 
+  const deletePost = () => {
+    removePost(index);
+  };
+
   return (
     <li className="profile__post-item">
       <span className="profile__post-avatar">
         <img width="40px" src={userAvatar} alt="" />
       </span>
+
       <span className="profile__post-text">{message}</span>
+      <span onClick={deletePost} className="cross__wrapper">
+        <img className="crossDelete" src={cross} alt="Cross" />
+      </span>
+
       <div className="like__wrapper">
         <svg
           onClick={onLike}

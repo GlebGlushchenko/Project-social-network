@@ -9,6 +9,7 @@ const Profile = () => {
       <div className="container">
         <div className="profile__content__wrapper">
           <div className="profile__content">
+            <h3 className="profile__title">.Profile</h3>
             <div className="profile__avatar">
               <img width="150px" src={userAvatar} alt="" />
             </div>
