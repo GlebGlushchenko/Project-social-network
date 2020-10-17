@@ -18,7 +18,7 @@ const Messages = () => {
     { text: 'Wellcome' },
     { text: 'lorem ipsum' },
     { text: 'Lorem Ipsum has been' },
-    { text: 'Bi' },
+    { text: 'Bye' },
     { text: 'lorem ipsum' },
   ]);
 
