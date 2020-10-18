@@ -220,6 +220,66 @@
   .massages__users {
     border: none;
   }
+
+  .massages__controle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: -140px;
+    left: 25%;
+  }
+
+  .massages__btn {
+    width: 175px;
+    font-size: 16px;
+  }
+
+  .massages__input {
+    margin-right: 0;
+    font-size: 16px;
+    padding: 20px;
+    margin-bottom: 5px;
+  }
+
+  .massages {
+    margin-top: 0;
+  }
+
+  .massages__section h3 {
+    margin-bottom: 10px;
+  }
+  .footer__wrapper div {
+    font-size: 13px;
+  }
+
+  .massages__users-item span {
+    font-size: 14px;
+  }
+
+  .massages__item {
+    font-size: 14px;
+  }
+
+  .massages__users {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .massages__controle {
+    left: 25%;
+  }
+
+  .massages__input {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .massages__controle {
+    left: 25%;
+  }
 }
 // /@Media
 

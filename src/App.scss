@@ -49,6 +49,17 @@
   }
 }
 
+// @Media
+
+@media screen and (max-width: 425px) {
+  .paginator__item {
+    padding: 10px 10px;
+    font-size: 16px;
+  }
+}
+
+// /@Media
+
 // / Paginator
 
 .App {
