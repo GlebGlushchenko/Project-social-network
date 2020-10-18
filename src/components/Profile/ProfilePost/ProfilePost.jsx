@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from '../ProfilePost/Post';
+import Post from './Post';
 
 const ProfilePost = () => {
   const [postText, setPostText] = React.useState([

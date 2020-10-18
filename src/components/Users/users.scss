@@ -34,10 +34,10 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-
+  flex-wrap: wrap;
   &__title {
     font-size: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
   }
 
   &__left-colum {
@@ -50,6 +50,7 @@
 
   &__item {
     margin-bottom: 40px;
+    width: 16%;
 
     &:last-child {
       margin-bottom: 0;
@@ -102,6 +103,11 @@
     margin-bottom: 20px;
   }
 }
+@media screen and (max-width: 768px) {
+  .users__item {
+    width: 25%;
+  }
+}
 
 @media screen and (max-width: 425px) {
   .avatar__users {
@@ -112,6 +118,10 @@
 // @Media
 
 @media screen and (max-width: 425px) {
+  .users__item {
+    width: 30%;
+  }
+
   .users__title {
     font-size: 25px;
   }
@@ -125,6 +135,15 @@
     width: 50px;
     height: 50px;
     padding: 50px;
+    img {
+      width: 70px;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .users__item {
+    width: 35%;
   }
 }
 

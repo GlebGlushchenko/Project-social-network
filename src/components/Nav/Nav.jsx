@@ -55,12 +55,10 @@ const Nav = () => {
 
           <NavLink className="nav__login" to="login">
             <div className="nav__login-avatar">
-              <img width="40px" src={userAvatar} alt="Avatar" />
+              <img src={userAvatar} alt="Avatar" />
             </div>
             <div className="nav__login-name">Gleb</div>
           </NavLink>
-
-          {/* <img src={logoNav2} alt="" /> */}
         </div>
       </div>
     </div>

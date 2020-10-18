@@ -1,6 +1,6 @@
 import React from 'react';
-import userAvatar from '../../assets/img/user.png';
-import cross from '../../assets/img/cross.png';
+import userAvatar from '../../../assets/img/user.png';
+import cross from '../../../assets/img/cross.png';
 
 const Post = ({ message, removePost, index }) => {
   const [like, setLike] = React.useState(0);

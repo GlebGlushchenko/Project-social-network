@@ -4,15 +4,7 @@ import MassageUser from './MessageUser';
 
 import MassagesItme from './MassagesItem';
 
-const Messages = () => {
-  const masseagesUsers = [
-    { name: 'Gleb', id: 1 },
-    { name: 'Vova', id: 2 },
-    { name: 'Artem', id: 3 },
-    { name: 'Zakssss', id: 4 },
-    { name: 'Cheed', id: 5 },
-  ];
-
+const Messages = ({ masseagesUsers }) => {
   const [massagesText, setMassagesText] = React.useState([
     { text: 'Hi' },
     { text: 'Wellcome' },
@@ -63,7 +55,10 @@ const Messages = () => {
           <div className="massages__users">
             <ul className="massages__users-list">
               {masseagesUsers.map((user) => (
-                <NavLink className="massages__users-link" key={user.id} to={`/massages/${user.id}`}>
+                <NavLink
+                  className="massages__users-NavLink"
+                  key={user.id}
+                  to={`/massages/${user.id}`}>
                   <MassageUser userName={user.name} />
                 </NavLink>
               ))}

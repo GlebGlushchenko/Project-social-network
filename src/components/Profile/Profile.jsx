@@ -1,7 +1,7 @@
 import React from 'react';
 import userAvatar from '../../assets/img/user.png';
 
-import ProfilePost from '../ProfilePost/ProfilePost';
+import ProfilePost from './ProfilePost/ProfilePost';
 
 const Profile = () => {
   return (
