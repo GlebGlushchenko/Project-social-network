@@ -1,50 +1,21 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import MassageUser from './MessageUser';
-
 import MassagesItme from './MassagesItem';
+import { addMessageAC, updateNewMessageTextAC } from '../redux/state';
 
-const Messages = ({ masseagesUsers }) => {
-  const [massagesText, setMassagesText] = React.useState([
-    { text: 'Hi' },
-    { text: 'Wellcome' },
-    { text: 'lorem ipsum' },
-    { text: 'Lorem Ipsum has been' },
-    { text: 'Bye' },
-    { text: 'lorem ipsum' },
-  ]);
+const Messages = ({ masseagesUsers, massagesText, newMessageText, dispatch }) => {
+  const newMessageTextRef = React.useRef();
 
-  const [massagText, setMassagText] = React.useState();
-
-  const toggleText = (e) => {
-    const val = e.target.value;
-    setMassagText(val.trim());
+  const onAddMessage = () => {
+    if (newMessageTextRef.current.value) {
+      dispatch(addMessageAC(newMessageTextRef.current.value));
+    } else alert('ENTER TEXT');
   };
 
-  const sendMassage = () => {
-    if (massagText) {
-      setMassagesText((prevState) => [...prevState, { text: massagText }]);
-      setMassagText('');
-    } else {
-      alert('Введите текст');
-    }
-  };
-
-  const handleKeyUp = (e) => {
-    if (e.keyCode === 13) {
-      sendMassage();
-    }
-  };
-
-  const removeMassage = (index) => {
-    setMassagesText((prevState) =>
-      prevState.filter((_, curIndex) => {
-        if (index !== curIndex) {
-          return true;
-        }
-        return false;
-      }),
-    );
+  const onChangeNewMessagetext = () => {
+    dispatch(updateNewMessageTextAC(newMessageTextRef.current.value.trim()));
   };
 
   return (
@@ -67,26 +38,20 @@ const Messages = ({ masseagesUsers }) => {
           <div className="massages__content">
             <div className="massages__content__inner">
               {massagesText.map((text, index) => (
-                <MassagesItme
-                  index={index}
-                  removeMassage={removeMassage}
-                  userName={'Name'}
-                  key={index}
-                  massageText={text.text}
-                />
+                <MassagesItme index={index} userName={'Name'} key={index} massageText={text.text} />
               ))}
             </div>
 
             <div className="massages__controle">
               <input
-                onKeyUp={handleKeyUp}
-                value={massagText}
-                onChange={toggleText}
+                onChange={onChangeNewMessagetext}
+                value={newMessageText}
+                ref={newMessageTextRef}
                 className="massages__input"
                 placeholder="enter massage text..."
                 type="text"
               />
-              <button onClick={sendMassage} className="massages__btn">
+              <button onClick={onAddMessage} className="massages__btn">
                 Send
               </button>
             </div>
@@ -96,4 +61,5 @@ const Messages = ({ masseagesUsers }) => {
     </section>
   );
 };
+
 export default Messages;

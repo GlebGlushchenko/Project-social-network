@@ -1,6 +1,5 @@
 import React from 'react';
 import userAvatar from '../../assets/img/user.png';
-import { NavLink } from 'react-router-dom';
 
 const MassageUser = ({ userName }) => {
   return (

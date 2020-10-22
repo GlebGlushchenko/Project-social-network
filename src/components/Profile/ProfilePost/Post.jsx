@@ -2,17 +2,13 @@ import React from 'react';
 import userAvatar from '../../../assets/img/user.png';
 import cross from '../../../assets/img/cross.png';
 
-const Post = ({ message, removePost, index }) => {
+const Post = ({ message }) => {
   const [like, setLike] = React.useState(0);
 
   const onLike = () => {
     if (like < 1) {
       setLike(like + 1);
     }
-  };
-
-  const deletePost = () => {
-    removePost(index);
   };
 
   return (
@@ -22,7 +18,7 @@ const Post = ({ message, removePost, index }) => {
       </span>
 
       <span className="profile__post-text">{message}</span>
-      <span onClick={deletePost} className="cross__wrapper">
+      <span className="cross__wrapper">
         <img className="crossDelete" src={cross} alt="Cross" />
       </span>
 
