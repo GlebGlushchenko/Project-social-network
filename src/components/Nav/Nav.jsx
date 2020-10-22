@@ -24,7 +24,7 @@ const Nav = () => {
                   <NavLink onClick={onToogleMenu} to="/profile">
                     <li>.Profile</li>
                   </NavLink>
-                  <NavLink onClick={onToogleMenu} to="/massages">
+                  <NavLink onClick={onToogleMenu} to="/messages">
                     <li>.Messages</li>
                   </NavLink>
                   <NavLink onClick={onToogleMenu} to="/users">
@@ -43,7 +43,7 @@ const Nav = () => {
               <NavLink to="/profile">.Profile</NavLink>
             </li>
             <li className="nav__item">
-              <NavLink to="/massages">.Messages</NavLink>
+              <NavLink to="/messages">.Messages</NavLink>
             </li>
             <li className="nav__item">
               <NavLink to="/users">.Users</NavLink>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Post from './Post';
-import { addPostAC, updateNewPostTextAC } from '../../redux/state';
+import { addPostAC, updateNewPostTextAC } from '../../redux/profile-reducer';
 
 const ProfilePost = ({ postText, newPostText, dispatch }) => {
   const newPostTextRef = React.useRef();

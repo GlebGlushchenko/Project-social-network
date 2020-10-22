@@ -3,7 +3,7 @@ import './App.scss';
 import Footer from './components/Footer/Footer';
 import Nav from './components/Nav/Nav';
 import Profile from './components/Profile/Profile';
-import Messages from './components/Massages/Massages';
+import Messages from './components/Messages/Messages';
 import News from './components/News/News';
 import Users from './components/Users/Users';
 import Login from './components/Login/Login';
@@ -26,13 +26,13 @@ function App(props) {
       />
       <Route path="/users" render={() => <Users users={props.state.userPage.users} />} />
       <Route
-        path="/massages"
+        path="/messages"
         render={() => (
           <Messages
             dispatch={props.dispatch}
             newMessageText={props.state.messagesPage.newMessageText}
             masseagesUsers={props.state.messagesPage.masseagesUsers}
-            massagesText={props.state.messagesPage.massagesText}
+            messagesText={props.state.messagesPage.messagesText}
           />
         )}
       />

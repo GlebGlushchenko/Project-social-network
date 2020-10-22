@@ -3,12 +3,12 @@ import cross from '../../assets/img/cross.png';
 
 import userAvatar from '../../assets/img/user.png';
 
-const MassagesItme = ({ massageText, userName }) => {
+const messagesItme = ({ massageText, userName }) => {
   return (
-    <div className="massages__item">
-      <span className="massages__item-avatar">
+    <div className="messages__item">
+      <span className="messages__item-avatar">
         <img width="40px" src={userAvatar} alt="" />
-        <span className="massages__name">{userName}</span>
+        <span className="messages__name">{userName}</span>
       </span>
       {massageText}
       <span className="cross__wrapper">
@@ -18,4 +18,4 @@ const MassagesItme = ({ massageText, userName }) => {
   );
 };
 
-export default MassagesItme;
+export default messagesItme;

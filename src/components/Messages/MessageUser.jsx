@@ -3,7 +3,7 @@ import userAvatar from '../../assets/img/user.png';
 
 const MassageUser = ({ userName }) => {
   return (
-    <li className="massages__users-item">
+    <li className="messages__users-item">
       <span className="avatar__users">
         <img width="40px" src={userAvatar} alt="avatar" />
       </span>

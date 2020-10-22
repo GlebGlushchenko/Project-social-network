@@ -2,10 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import MassageUser from './MessageUser';
-import MassagesItme from './MassagesItem';
-import { addMessageAC, updateNewMessageTextAC } from '../redux/state';
+import MessagesItme from './MessagesItem';
+import { addMessageAC, updateNewMessageTextAC } from '../redux/messeges-reducer';
 
-const Messages = ({ masseagesUsers, massagesText, newMessageText, dispatch }) => {
+const Messages = ({ masseagesUsers, messagesText, newMessageText, dispatch }) => {
   const newMessageTextRef = React.useRef();
 
   const onAddMessage = () => {
@@ -18,40 +18,47 @@ const Messages = ({ masseagesUsers, massagesText, newMessageText, dispatch }) =>
     dispatch(updateNewMessageTextAC(newMessageTextRef.current.value.trim()));
   };
 
+  const handlerKeyUp = (event) => {
+    if (event.keyCode === 13) {
+      onAddMessage();
+    }
+  };
+
   return (
-    <section className="massages__section">
-      <h3>.Massages</h3>
+    <section className="messages__section">
+      <h3>.messages</h3>
       <div className="container">
-        <div className="massages">
-          <div className="massages__users">
-            <ul className="massages__users-list">
+        <div className="messages">
+          <div className="messages__users">
+            <ul className="messages__users-list">
               {masseagesUsers.map((user) => (
                 <NavLink
-                  className="massages__users-NavLink"
+                  className="messages__users-NavLink"
                   key={user.id}
-                  to={`/massages/${user.id}`}>
+                  to={`/messages/${user.id}`}>
                   <MassageUser userName={user.name} />
                 </NavLink>
               ))}
             </ul>
           </div>
-          <div className="massages__content">
-            <div className="massages__content__inner">
-              {massagesText.map((text, index) => (
-                <MassagesItme index={index} userName={'Name'} key={index} massageText={text.text} />
+          <div className="messages__content">
+            <div className="messages__content__inner">
+              {messagesText.map((text, index) => (
+                <MessagesItme index={index} userName={'Name'} key={index} massageText={text.text} />
               ))}
             </div>
 
-            <div className="massages__controle">
+            <div className="messages__controle">
               <input
+                onKeyUp={handlerKeyUp}
                 onChange={onChangeNewMessagetext}
                 value={newMessageText}
                 ref={newMessageTextRef}
-                className="massages__input"
+                className="messages__input"
                 placeholder="enter massage text..."
                 type="text"
               />
-              <button onClick={onAddMessage} className="massages__btn">
+              <button onClick={onAddMessage} className="messages__btn">
                 Send
               </button>
             </div>
