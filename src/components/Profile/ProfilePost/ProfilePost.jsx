@@ -41,9 +41,13 @@ const ProfilePost = ({ postText, newPostText, dispatch }) => {
       </div>
       <div className="profile__post-wrapper">
         <ul className="profile__post-list">
-          {postText.map((post, index) => (
-            <Post message={post.text} index={index} key={index} />
-          ))}
+          {postText.length === 0 ? (
+            <div className="noPostText">No Post</div>
+          ) : (
+            postText.map((post, index) => (
+              <Post dispatch={dispatch} message={post.text} index={index} key={index} />
+            ))
+          )}
         </ul>
       </div>
     </div>

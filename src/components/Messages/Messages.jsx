@@ -43,9 +43,19 @@ const Messages = ({ masseagesUsers, messagesText, newMessageText, dispatch }) =>
           </div>
           <div className="messages__content">
             <div className="messages__content__inner">
-              {messagesText.map((text, index) => (
-                <MessagesItme index={index} userName={'Name'} key={index} massageText={text.text} />
-              ))}
+              {messagesText.length === 0 ? (
+                <div className="noMessageText">No Message</div>
+              ) : (
+                messagesText.map((text, index) => (
+                  <MessagesItme
+                    dispatch={dispatch}
+                    index={index}
+                    userName={'Name'}
+                    key={index}
+                    massageText={text.text}
+                  />
+                ))
+              )}
             </div>
 
             <div className="messages__controle">

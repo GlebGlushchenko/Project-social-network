@@ -35,12 +35,12 @@ const store = {
 
     profilePage: {
       postText: [
-        { text: 'Hi' },
-        { text: 'Wellcome' },
-        { text: 'lorem ipsum' },
-        { text: 'Lorem Ipsum has been' },
-        { text: 'Bye' },
-        { text: 'lorem ipsum' },
+        { id: 1, text: 'Hi' },
+        { id: 2, text: 'Wellcome' },
+        { id: 3, text: 'lorem ipsum' },
+        { id: 4, text: 'Lorem Ipsum has been' },
+        { id: 5, text: 'Bye' },
+        { id: 6, text: 'lorem ipsum' },
       ],
       newPostText: '',
     },

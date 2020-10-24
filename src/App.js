@@ -24,7 +24,7 @@ function App(props) {
           />
         )}
       />
-      <Route path="/users" render={() => <Users users={props.state.userPage.users} />} />
+      <Route path="/users" render={() => <Users users={props.state.usersPage.users} />} />
       <Route
         path="/messages"
         render={() => (
