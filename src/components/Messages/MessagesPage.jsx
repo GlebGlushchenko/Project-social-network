@@ -1,7 +1,5 @@
 import React from 'react';
 
-import MassageUser from './MessageUser';
-
 import Messages from './Messages';
 import MessagesUsers from './MessagesUsers';
 
@@ -33,7 +31,7 @@ const MessagesPage = ({
 
   return (
     <section className="messages__section">
-      <h3>.messages</h3>
+      <h3>.Messages</h3>
       <div className="container">
         <div className="messages">
           <div className="messages__users">

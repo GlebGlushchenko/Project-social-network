@@ -7,3 +7,5 @@
 [Classnames](https://github.com/JedWatson/classnames#readme)
 <br>
 [Redux](https://github.com/reduxjs/redux)
+<br>
+[React-Redux](https://github.com/reduxjs/react-redux)
