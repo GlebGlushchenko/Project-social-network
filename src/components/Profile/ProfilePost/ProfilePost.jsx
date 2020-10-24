@@ -1,19 +1,18 @@
 import React from 'react';
 import Post from './Post';
-import { addPostAC, updateNewPostTextAC } from '../../redux/profile-reducer';
 
-const ProfilePost = ({ postText, newPostText, dispatch }) => {
+const ProfilePost = ({ postText, newPostText, addPost, changePostText, removePost }) => {
   const newPostTextRef = React.useRef();
 
   const onAddPost = () => {
     let text = newPostTextRef.current.value;
     if (text) {
-      dispatch(addPostAC(text));
+      addPost(text);
     } else alert('ENTER TEXT');
   };
 
   const onChangeTextPost = () => {
-    dispatch(updateNewPostTextAC(newPostTextRef.current.value.trim()));
+    changePostText(newPostTextRef.current.value.trim());
   };
 
   const handlerKeyUp = (e) => {
@@ -45,7 +44,7 @@ const ProfilePost = ({ postText, newPostText, dispatch }) => {
             <div className="noPostText">No Post</div>
           ) : (
             postText.map((post, index) => (
-              <Post dispatch={dispatch} message={post.text} index={index} key={index} />
+              <Post removePost={removePost} message={post.text} index={index} key={index} />
             ))
           )}
         </ul>

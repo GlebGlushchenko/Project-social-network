@@ -52,5 +52,5 @@ const messagesReducer = (state = initialState, action) => {
 
 export const addMessageAC = (text) => ({ type: ADD_MESSAGE, textMessage: text });
 export const updateNewMessageTextAC = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text });
-export const removeMessage = (index) => ({ type: REMOVE_MESSAGE, index });
+export const removeMessageAC = (index) => ({ type: REMOVE_MESSAGE, index });
 export default messagesReducer;

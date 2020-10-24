@@ -1,9 +1,7 @@
 import React from 'react';
 import userAvatar from '../../../assets/img/user.png';
 import cross from '../../../assets/img/cross.png';
-import { removePostAC } from '../../redux/profile-reducer';
-
-const Post = ({ message, dispatch, index }) => {
+const Post = ({ message, removePost, index }) => {
   const [like, setLike] = React.useState(0);
 
   const onLike = () => {
@@ -12,7 +10,7 @@ const Post = ({ message, dispatch, index }) => {
     }
   };
   const onRemovePost = () => {
-    dispatch(removePostAC(index));
+    removePost(index);
   };
 
   return (

@@ -2,11 +2,10 @@ import React from 'react';
 import cross from '../../assets/img/cross.png';
 
 import userAvatar from '../../assets/img/user.png';
-import { removeMessage } from '../redux/messeges-reducer';
 
-const messagesItme = ({ massageText, userName, index, dispatch }) => {
+const messagesItme = ({ massageText, userName, index, removeMessage }) => {
   const onRemoveMessage = () => {
-    dispatch(removeMessage(index));
+    removeMessage(index);
   };
 
   return (
