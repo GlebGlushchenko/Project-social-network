@@ -1,14 +1,30 @@
 import React from 'react';
-import userAvatar from '../../../assets/img/user.png';
 
-const User = () => {
+const User = ({ follow, name, followUser, unfollowUser, index, location, status, userAvatar }) => {
+  const onFollowUser = () => {
+    followUser(index);
+  };
+  const onUnfollow = () => {
+    unfollowUser(index);
+  };
   return (
     <div className="users__item">
       <div className="user">
         <div className="user__img">
           <img src={userAvatar} alt="Avatar" />
         </div>
-        <span>Name</span>
+        <div className="user__description">
+          <p className="user__name">{name}</p>
+          <p>{status}</p>
+          <p>{location.country}</p>
+          <p>{location.city}</p>
+        </div>
+
+        <div>
+          <button onClick={follow ? onUnfollow : onFollowUser} className="follow__btn">
+            {follow ? 'Follow' : 'Unfollow'}
+          </button>
+        </div>
       </div>
     </div>
   );

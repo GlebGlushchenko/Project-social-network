@@ -1,16 +1,16 @@
 import React from 'react';
 import userAvatar from '../../../assets/img/user.png';
 import cross from '../../../assets/img/cross.png';
-const Post = ({ message, removePost, index }) => {
-  const [like, setLike] = React.useState(0);
-
-  const onLike = () => {
-    if (like < 1) {
-      setLike(like + 1);
-    }
-  };
+const Post = ({ message, removePost, index, like, addLike, id, removeLike }) => {
+  console.log(like);
   const onRemovePost = () => {
     removePost(index);
+  };
+  const onAddlike = () => {
+    addLike(id);
+  };
+  const onRemoveLike = () => {
+    removeLike(id);
   };
 
   return (
@@ -26,7 +26,7 @@ const Post = ({ message, removePost, index }) => {
 
       <div className="like__wrapper">
         <svg
-          onClick={onLike}
+          onClick={like === 0 ? onAddlike : onRemoveLike}
           className={`like ${like > 0 ? 'like--acteve' : null}`}
           viewBox="0 -28 512.001 512"
           xmlns="http://www.w3.org/2000/svg">

@@ -1,7 +1,15 @@
 import React from 'react';
 import Post from './Post';
 
-const ProfilePost = ({ postText, newPostText, addPost, changePostText, removePost }) => {
+const ProfilePost = ({
+  postText,
+  newPostText,
+  addPost,
+  changePostText,
+  removePost,
+  addLike,
+  removeLike,
+}) => {
   const newPostTextRef = React.useRef();
 
   const onAddPost = () => {
@@ -44,7 +52,16 @@ const ProfilePost = ({ postText, newPostText, addPost, changePostText, removePos
             <div className="noPostText">No Post</div>
           ) : (
             postText.map((post, index) => (
-              <Post removePost={removePost} message={post.text} index={index} key={index} />
+              <Post
+                removeLike={removeLike}
+                addLike={addLike}
+                removePost={removePost}
+                message={post.text}
+                like={post.like}
+                index={index}
+                key={index}
+                id={post.id}
+              />
             ))
           )}
         </ul>

@@ -1,4 +1,10 @@
-import { addPostAC, removePostAC, updateNewPostTextAC } from '../../../redux/profile-reducer';
+import {
+  addPostAC,
+  removePostAC,
+  updateNewPostTextAC,
+  addLikeAC,
+  removeLikeAC,
+} from '../../../redux/profile-reducer';
 import { connect } from 'react-redux';
 
 import ProfilePost from '../ProfilePost';
@@ -9,7 +15,7 @@ const mapStateToProps = (state) => {
     postText: state.profilePage.postText,
   };
 };
-const mapStateToDispatch = (dispatch) => {
+const mapDispathcToProps = (dispatch) => {
   return {
     changePostText: (text) => {
       dispatch(updateNewPostTextAC(text));
@@ -20,8 +26,14 @@ const mapStateToDispatch = (dispatch) => {
     removePost: (index) => {
       dispatch(removePostAC(index));
     },
+    addLike: (id) => {
+      dispatch(addLikeAC(id));
+    },
+    removeLike: (id) => {
+      dispatch(removeLikeAC(id));
+    },
   };
 };
-const ProfilePostContainer = connect(mapStateToProps, mapStateToDispatch)(ProfilePost);
+const ProfilePostContainer = connect(mapStateToProps, mapDispathcToProps)(ProfilePost);
 
 export default ProfilePostContainer;
