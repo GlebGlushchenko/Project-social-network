@@ -2,7 +2,6 @@ import React from 'react';
 import userAvatar from '../../../assets/img/user.png';
 import cross from '../../../assets/img/cross.png';
 const Post = ({ message, removePost, index, like, addLike, id, removeLike }) => {
-  console.log(like);
   const onRemovePost = () => {
     removePost(index);
   };
