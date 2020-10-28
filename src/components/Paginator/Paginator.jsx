@@ -18,6 +18,7 @@ const Paginator = ({ pageSize, totalUserCount, currentPage, onSelectedPage }) =>
       {countPage.map((page) => {
         return (
           <div
+            key={page}
             onClick={(e) => onCurrentPage(page)}
             className={cn('paginator__item', {
               'paginator__item--active': currentPage === page,
@@ -26,10 +27,9 @@ const Paginator = ({ pageSize, totalUserCount, currentPage, onSelectedPage }) =>
           </div>
         );
       })}
+      <div className="paginator__item">...</div>
     </div>
   );
 };
 
 export default Paginator;
-
-// "paginator__item paginator__item--active"

@@ -11,3 +11,5 @@
 [React-Redux](https://github.com/reduxjs/react-redux)
 <br>
 [axios](https://github.com/axios/axios)
+<br>
+[react-content-loader](https://github.com/danilowoz/react-content-loader)
