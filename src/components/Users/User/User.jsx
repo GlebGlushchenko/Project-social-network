@@ -1,6 +1,11 @@
 import React from 'react';
+import userAvatar from '../../../assets/img/user.png';
 
-const User = ({ follow, name, followUser, unfollowUser, index, location, status, userAvatar }) => {
+const User = ({ follow, name, followUser, unfollowUser, index, status, photos }) => {
+  const defaultlocation = {
+    location: { city: 'Minsk', country: 'Belarus' },
+  };
+
   const onFollowUser = () => {
     followUser(index);
   };
@@ -11,13 +16,11 @@ const User = ({ follow, name, followUser, unfollowUser, index, location, status,
     <div className="users__item">
       <div className="user">
         <div className="user__img">
-          <img src={userAvatar} alt="Avatar" />
+          <img src={photos.large !== null ? photos.large : userAvatar} alt="Avatar" />
         </div>
         <div className="user__description">
           <p className="user__name">{name}</p>
-          <p>{status}</p>
-          <p>{location.country}</p>
-          <p>{location.city}</p>
+          <p className="user__status">{status}</p>
         </div>
 
         <div>

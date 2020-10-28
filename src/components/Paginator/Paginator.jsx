@@ -1,16 +1,35 @@
 import React from 'react';
+import cn from 'classnames';
 
-const Paginator = () => {
+const Paginator = ({ pageSize, totalUserCount, currentPage, onSelectedPage }) => {
+  const sizePage = Math.ceil(totalUserCount / pageSize);
+  const countPage = [];
+
+  for (let i = 1; i < sizePage; i++) {
+    countPage.push(i);
+  }
+
+  const onCurrentPage = (page) => {
+    onSelectedPage(page);
+  };
+
   return (
     <div className="paginator">
-      <div className="paginator__item paginator__item--active">1</div>
-      <div className="paginator__item">2</div>
-      <div className="paginator__item">3</div>
-      <div className="paginator__item">4</div>
-      <div className="paginator__item">5</div>
-      <div className="paginator__item">...</div>
+      {countPage.map((page) => {
+        return (
+          <div
+            onClick={(e) => onCurrentPage(page)}
+            className={cn('paginator__item', {
+              'paginator__item--active': currentPage === page,
+            })}>
+            {page}
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 export default Paginator;
+
+// "paginator__item paginator__item--active"
