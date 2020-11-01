@@ -5,15 +5,14 @@ const Loader = (props) => (
   <ContentLoader
     speed={2}
     width={300}
-    height={264}
-    viewBox="0 0 260 260"
+    height={268}
+    viewBox="0 0 300 268"
     backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
+    foregroundColor="#BDBDBD"
     {...props}>
-    <rect x="64" y="196" rx="3" ry="3" width="88" height="6" />
-    <circle cx="106" cy="85" r="66" />
-    <rect x="64" y="223" rx="3" ry="3" width="88" height="24" />
-    <rect x="65" y="176" rx="3" ry="3" width="88" height="6" />
+    <rect x="100" y="220" rx="3" ry="3" width="116" height="42" />
+    <rect x="113" y="149" rx="3" ry="3" width="100" height="10" />
+    <circle cx="160" cy="67" r="60" />
   </ContentLoader>
 );
 

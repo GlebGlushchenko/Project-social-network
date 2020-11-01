@@ -3,16 +3,14 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import {
-  followUserAC,
-  unfollowUserAC,
-  setUsersAC,
-  setTotalUserCountAC,
-  setCurrentPageAC,
-  setFetchingAC,
+  followUser,
+  unfollowUser,
+  setUsers,
+  setTotalUserCount,
+  setCurrentPage,
+  setFetching,
 } from '../redux/users-reduser';
 import Users from './Users';
-import Preloader from '../../assets/util/Preloader';
-import Loader from '../../assets/util/Loader';
 
 const mapStateToProps = (state) => {
   return {
@@ -24,32 +22,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispathcToProps = (dispatch) => {
-  return {
-    followUser: (index) => {
-      dispatch(followUserAC(index));
-    },
-    unfollowUser: (index) => {
-      dispatch(unfollowUserAC(index));
-    },
-    setUsers: (users) => {
-      dispatch(setUsersAC(users));
-    },
-    setTotalUserCount: (count) => {
-      dispatch(setTotalUserCountAC(count));
-    },
-    setCurrentPage: (page) => {
-      dispatch(setCurrentPageAC(page));
-    },
-    setFetch: (fetch) => {
-      dispatch(setFetchingAC(fetch));
-    },
-  };
-};
-
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.setFetch(true);
+    this.props.setFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
@@ -59,13 +34,14 @@ class UsersContainer extends React.Component {
         this.props.setTotalUserCount(response.data.totalCount);
 
         if (response.status === 200) {
-          this.props.setFetch(false);
+          this.props.setFetching(false);
         }
       });
   }
-  onSelectedPage = (page) => {
+  onSelectedPage = ({ selected }) => {
+    let page = selected + 1;
     this.props.setCurrentPage(page);
-    this.props.setFetch(true);
+    this.props.setFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`,
@@ -73,7 +49,7 @@ class UsersContainer extends React.Component {
       .then((response) => {
         this.props.setUsers(response.data.items);
 
-        this.props.setFetch(false);
+        this.props.setFetching(false);
       });
   };
 
@@ -94,4 +70,12 @@ class UsersContainer extends React.Component {
     );
   }
 }
-export default connect(mapStateToProps, mapDispathcToProps)(UsersContainer);
+
+export default connect(mapStateToProps, {
+  followUser,
+  unfollowUser,
+  setUsers,
+  setTotalUserCount,
+  setCurrentPage,
+  setFetching,
+})(UsersContainer);

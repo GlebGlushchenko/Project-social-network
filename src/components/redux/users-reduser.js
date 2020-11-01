@@ -39,7 +39,7 @@ const usersReducer = (state = initialState, action) => {
     case SET_TOTAL_USER_COUNT:
       return {
         ...state,
-        totalUserCount: action.count / 100,
+        totalUserCount: action.count,
       };
     case SET_CURREN_PAGE:
       return {
@@ -56,11 +56,11 @@ const usersReducer = (state = initialState, action) => {
   }
 };
 
-export const followUserAC = (index) => ({ type: FOLLOW_USER, index });
-export const unfollowUserAC = (index) => ({ type: UNFOLLOW_USER, index });
-export const setUsersAC = (users) => ({ type: SET_USERS, users });
-export const setTotalUserCountAC = (count) => ({ type: SET_TOTAL_USER_COUNT, count });
-export const setCurrentPageAC = (pageNumb) => ({ type: SET_CURREN_PAGE, pageNumb });
-export const setFetchingAC = (fetch) => ({ type: SET_FETCH, fetch });
+export const followUser = (index) => ({ type: FOLLOW_USER, index });
+export const unfollowUser = (index) => ({ type: UNFOLLOW_USER, index });
+export const setUsers = (users) => ({ type: SET_USERS, users });
+export const setTotalUserCount = (count) => ({ type: SET_TOTAL_USER_COUNT, count });
+export const setCurrentPage = (pageNumb) => ({ type: SET_CURREN_PAGE, pageNumb });
+export const setFetching = (fetch) => ({ type: SET_FETCH, fetch });
 
 export default usersReducer;

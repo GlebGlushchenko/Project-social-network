@@ -9,12 +9,13 @@ import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login';
 import { Route } from 'react-router-dom';
 import MessagesContainer from './components/Messages/Container/MessagesContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 function App() {
   return (
     <div className="App">
       <Nav />
-      <Route exact path="/profile" render={() => <Profile />} />
+      <Route path="/profile" render={() => <ProfileContainer />} />
       <Route path="/users" render={() => <UsersContainer />} />
       <Route path="/messages" render={() => <MessagesContainer />} />
       <Route path="/news" render={News} />

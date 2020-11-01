@@ -22,6 +22,14 @@ a {
   color: black;
 }
 
+button {
+  font-family: 'Roboto Mono', monospace;
+}
+
+input {
+  font-family: 'Roboto Mono', monospace;
+}
+
 .App {
   display: flex;
   align-items: center;
