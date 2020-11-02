@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Route path="/profile" render={() => <ProfileContainer />} />
+      <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
       <Route path="/users" render={() => <UsersContainer />} />
       <Route path="/messages" render={() => <MessagesContainer />} />
       <Route path="/news" render={News} />
