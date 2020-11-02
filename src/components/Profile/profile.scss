@@ -1,14 +1,22 @@
 //Profile
 
-.profile__logo {
+.profile__name {
   margin-bottom: 30px;
   font-size: 22px;
+  text-transform: uppercase;
 }
 
 .profile__wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+.profile__content-wrapper {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: baseline;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile__content {
@@ -83,12 +91,11 @@
       opacity: 1;
     }
   }
-
-  img {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 80px;
-  }
+}
+.profile__avatar-img {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 80px;
 }
 
 .profile__content__wrapper {
