@@ -23,7 +23,7 @@ const ProfileContent = ({ profileData }) => {
           <div className="profile__description">
             <ul className="profile__description-list">
               <li className="profile__description-list-item">
-                Status: <b>Status &#11088; </b>
+                Status: <b>{profileData.aboutMe} &#11088; </b>
               </li>
               <li className="profile__description-list-item">
                 County: <b>Russian &#127757;</b>
@@ -43,4 +43,4 @@ const ProfileContent = ({ profileData }) => {
   );
 };
 
-export default ProfileContent;
+export default React.memo(ProfileContent);
