@@ -19,14 +19,14 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         users: state.users.map((user) =>
-          user.id === action.index ? { ...user, follow: true } : user,
+          user.id === action.index ? { ...user, followed: true } : user,
         ),
       };
     case UNFOLLOW_USER:
       return {
         ...state,
         users: state.users.map((user) =>
-          user.id === action.index ? { ...user, follow: false } : user,
+          user.id === action.index ? { ...user, followed: false } : user,
         ),
       };
 

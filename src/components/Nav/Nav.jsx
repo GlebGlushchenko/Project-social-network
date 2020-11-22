@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logoNav from '../../assets/img/share.png';
 import userAvatar from '../../assets/img/user.png';
 
-const Nav = () => {
+const Nav = (props) => {
   const [test, setTest] = React.useState(false);
   const onToogleMenu = () => {
     setTest(!test);
@@ -54,10 +54,13 @@ const Nav = () => {
           </ul>
 
           <NavLink className="nav__login" to="login">
-            <div className="nav__login-avatar">
-              <img src={userAvatar} alt="Avatar" />
-            </div>
-            <div className="nav__login-name">Gleb</div>
+            {props.isAuth ? (
+              <div className="nav__login-avatar">
+                <img src={userAvatar} alt="Avatar" />
+              </div>
+            ) : null}
+
+            <div className="nav__login-name">{props.isAuth ? props.login : 'Login'}</div>
           </NavLink>
         </div>
       </div>

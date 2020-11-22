@@ -19,7 +19,7 @@ const Users = (props) => {
                   unfollowUser={props.unfollowUser}
                   followUser={props.followUser}
                   name={user.name}
-                  follow={user.follow}
+                  follow={user.followed}
                   index={user.id}
                   key={index}
                   usersId={user.id}

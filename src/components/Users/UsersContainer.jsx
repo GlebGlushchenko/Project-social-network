@@ -28,6 +28,7 @@ class UsersContainer extends React.Component {
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
+        { withCredentials: true, headers: { 'API-KEY': '45414e19-d78d-4b5b-aaf5-666ee2401d0a' } },
       )
       .then((response) => {
         this.props.setUsers(response.data.items);
@@ -45,6 +46,7 @@ class UsersContainer extends React.Component {
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`,
+        { withCredentials: true, headers: { 'API-KEY': '45414e19-d78d-4b5b-aaf5-666ee2401d0a' } },
       )
       .then((response) => {
         this.props.setUsers(response.data.items);

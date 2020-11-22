@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.scss';
 import Footer from './components/Footer/Footer';
-import Nav from './components/Nav/Nav';
-import Profile from './components/Profile/Profile';
+import NavContainer from './components/Nav/NavContainer';
 
 import News from './components/News/News';
 import UsersContainer from './components/Users/UsersContainer';
@@ -14,7 +13,7 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 function App() {
   return (
     <div className="App">
-      <Nav />
+      <NavContainer />
       <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
       <Route path="/users" render={() => <UsersContainer />} />
       <Route path="/messages" render={() => <MessagesContainer />} />

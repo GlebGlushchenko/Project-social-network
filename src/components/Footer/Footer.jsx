@@ -5,7 +5,10 @@ const Footer = () => {
   return (
     <div className="footer__wrapper">
       <div>
-        &#x1F611; copyright@ Layout and logic
+        <span role="img" aria-label="smile-sad">
+          &#x1F611;
+        </span>
+        copyright@ Layout and logic
         <a href="https://github.com/GlebGlushchenko" target="blank">
           'Gleb'
         </a>

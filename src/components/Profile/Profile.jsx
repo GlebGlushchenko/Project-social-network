@@ -3,12 +3,12 @@ import React from 'react';
 import ProfileContent from './ProfilePost/ProfileContent';
 import ProfilePostContainer from './ProfilePost/Container/ProfilePostContainer';
 
-const Profile = ({ profileData }) => {
+const Profile = (props) => {
   return (
     <section className="profile__wrapper">
       <div className="container">
         <div className="profile__content__wrapper">
-          <ProfileContent profileData={profileData} />
+          <ProfileContent userID={props.userID} profileData={props.profileData} />
           <ProfilePostContainer />
         </div>
       </div>
