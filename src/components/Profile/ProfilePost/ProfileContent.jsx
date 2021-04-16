@@ -1,7 +1,7 @@
-import React from 'react';
-import userAvatar from '../../../assets/img/user.png';
+import React from 'react'
+import userAvatar from '../../../assets/img/user.png'
 
-import Preloader from '../../../assets/util/Preloader';
+import Preloader from '../../../assets/util/Preloader'
 
 const ProfileContent = ({ profileData, userID }) => {
   return (
@@ -23,16 +23,16 @@ const ProfileContent = ({ profileData, userID }) => {
           <div className="profile__description">
             <ul className="profile__description-list">
               <li className="profile__description-list-item">
-                Status:{' '}
+                Status:
                 <b>
-                  {profileData.aboutMe}{' '}
+                  {profileData.aboutMe}
                   <span role="img" aria-label="star">
                     &#11088;
-                  </span>{' '}
+                  </span>
                 </b>
               </li>
               <li className="profile__description-list-item">
-                County:{' '}
+                County:
                 <b>
                   Russian
                   <span role="img" aria-label="planet">
@@ -41,18 +41,18 @@ const ProfileContent = ({ profileData, userID }) => {
                 </b>
               </li>
               <li className="profile__description-list-item">
-                City:{' '}
+                City:
                 <b>
                   Petrozavodsk
                   <span role="img" aria-label="city">
                     &#127747;
-                  </span>{' '}
+                  </span>
                 </b>
               </li>
               <li className="profile__description-list-item">
-                Birthday:{' '}
+                Birthday:
                 <b>
-                  29/09/1995{' '}
+                  29/09/1995
                   <span role="img" aria-label="happy birthday">
                     &#127881;
                   </span>
@@ -64,7 +64,7 @@ const ProfileContent = ({ profileData, userID }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(ProfileContent);
+export default React.memo(ProfileContent)

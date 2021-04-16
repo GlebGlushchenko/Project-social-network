@@ -1,37 +1,27 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import userAvatar from '../../../assets/img/user.png';
-import axios from 'axios';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const User = ({ follow, name, followUser, unfollowUser, index, status, photos, usersId }) => {
+import userAvatar from '../../../assets/img/user.png'
+
+const User = ({
+  follow,
+  name,
+  index,
+  status,
+  photos,
+  usersId,
+  setDisabledBtn,
+  followUserThunkCreator,
+  unFollowUserThunkCreator,
+}) => {
   const onFollowUser = () => {
-    axios
-      .post(
-        `https://social-network.samuraijs.com/api/1.0//follow/${index}`,
-        {},
-        {
-          withCredentials: true,
-          headers: { 'API-KEY': '45414e19-d78d-4b5b-aaf5-666ee2401d0a' },
-        },
-      )
-      .then((response) => {
-        if (!response.data.resultCode) {
-          followUser(index);
-        }
-      });
-  };
+    followUserThunkCreator(usersId, index)
+  }
+
   const onUnfollow = () => {
-    axios
-      .delete(`https://social-network.samuraijs.com/api/1.0//follow/${index}`, {
-        withCredentials: true,
-        headers: { 'API-KEY': '45414e19-d78d-4b5b-aaf5-666ee2401d0a' },
-      })
-      .then((response) => {
-        if (response.data.resultCode === 0) {
-          unfollowUser(index);
-        }
-      });
-  };
+    unFollowUserThunkCreator(usersId, index)
+  }
+
   return (
     <div className="users__item">
       <div className="user">
@@ -46,13 +36,16 @@ const User = ({ follow, name, followUser, unfollowUser, index, status, photos, u
         </div>
 
         <div>
-          <button onClick={follow ? onUnfollow : onFollowUser} className="follow__btn">
+          <button
+            disabled={setDisabledBtn.some((id) => id === usersId)}
+            onClick={follow ? onUnfollow : onFollowUser}
+            className="follow__btn">
             {follow ? 'Unfollow' : 'Follow'}
           </button>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default User;
+export default User

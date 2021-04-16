@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Login = () => {
   return (
@@ -13,7 +13,7 @@ const Login = () => {
 
       <button className="login__form-btn">Login</button>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

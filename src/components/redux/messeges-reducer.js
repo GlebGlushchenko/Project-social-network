@@ -1,6 +1,6 @@
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-const REMOVE_MESSAGE = 'REMOVE-MESSAGE';
+const ADD_MESSAGE = 'ADD-MESSAGE'
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
+const REMOVE_MESSAGE = 'REMOVE-MESSAGE'
 
 const initialState = {
   masseagesUsers: [
@@ -19,19 +19,19 @@ const initialState = {
     { id: 6, text: 'lorem ipsum' },
   ],
   newMessageText: '',
-};
+}
 
 const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
       return {
         ...state,
-        messagesText: [...state.messagesText, { text: action.textMessage }],
+        messagesText: [...state.messagesText, { id: new Date(), text: action.textMessage }],
         newMessageText: '',
-      };
+      }
 
     case UPDATE_NEW_MESSAGE_TEXT:
-      return { ...state, newMessageText: action.newText };
+      return { ...state, newMessageText: action.newText }
 
     case REMOVE_MESSAGE:
       return {
@@ -39,18 +39,20 @@ const messagesReducer = (state = initialState, action) => {
         messagesText: [
           ...state.messagesText.filter((_, id) => {
             if (action.index !== id) {
-              return true;
+              return true
             }
-            return false;
+            return false
           }),
         ],
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export const addMessageAC = (text) => ({ type: ADD_MESSAGE, textMessage: text });
-export const updateNewMessageTextAC = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text });
-export const removeMessageAC = (index) => ({ type: REMOVE_MESSAGE, index });
-export default messagesReducer;
+//ACTION CREATOR
+export const addMessageAC = (text) => ({ type: ADD_MESSAGE, textMessage: text })
+export const updateNewMessageTextAC = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text })
+export const removeMessageAC = (index) => ({ type: REMOVE_MESSAGE, index })
+//ACTION CREATOR
+export default messagesReducer

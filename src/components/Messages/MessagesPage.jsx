@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import Messages from './Messages';
-import MessagesUsers from './MessagesUsers';
+import Messages from './Messages'
+import MessagesUsers from './MessagesUsers'
 
 const MessagesPage = ({
   masseagesUsers,
@@ -10,24 +10,26 @@ const MessagesPage = ({
   addMessage,
   removeMessage,
   updateMessageText,
+  isAuth,
 }) => {
-  const newMessageTextRef = React.useRef();
+  const newMessageTextRef = React.useRef()
+  console.log(isAuth)
 
   const onAddMessage = () => {
     if (newMessageTextRef.current.value) {
-      addMessage(newMessageTextRef.current.value);
-    } else alert('ENTER TEXT');
-  };
+      addMessage(newMessageTextRef.current.value)
+    } else alert('ENTER TEXT')
+  }
 
   const onChangeNewMessagetext = () => {
-    updateMessageText(newMessageTextRef.current.value.trim());
-  };
+    updateMessageText(newMessageTextRef.current.value.trim())
+  }
 
   const handlerKeyUp = (event) => {
     if (event.keyCode === 13) {
-      onAddMessage();
+      onAddMessage()
     }
-  };
+  }
 
   return (
     <section className="messages__section">
@@ -58,7 +60,7 @@ const MessagesPage = ({
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default MessagesPage;
+export default MessagesPage

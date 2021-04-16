@@ -1,10 +1,10 @@
-import React from 'react';
-import Loader from '../../assets/util/Loader';
-import ReactPaginate from 'react-paginate';
+import React from 'react'
+import Loader from '../../assets/util/Loader'
+import ReactPaginate from 'react-paginate'
 
-import User from './User/User';
+import User from './User/User'
 
-const Users = (props) => {
+const Users = ({ props, onSelectedPage }) => {
   return (
     <section className="users__wrapper">
       <h3 className="users__title">.Users</h3>
@@ -16,13 +16,14 @@ const Users = (props) => {
                   photos={user.photos}
                   location={user.location}
                   status={user.status}
-                  unfollowUser={props.unfollowUser}
-                  followUser={props.followUser}
                   name={user.name}
                   follow={user.followed}
                   index={user.id}
                   key={index}
                   usersId={user.id}
+                  setDisabledBtn={props.setDisabledBtn}
+                  followUserThunkCreator={props.followUserThunkCreator}
+                  unFollowUserThunkCreator={props.unFollowUserThunkCreator}
                 />
               ))
             : Array(8)
@@ -31,7 +32,7 @@ const Users = (props) => {
         </div>
         <ReactPaginate
           initialPage={0}
-          pageCount={props.totalUserCount}
+          pageCount={props.totalUserCount / 10}
           previousLabel={'Prev'}
           nextLabel={'Next'}
           breakLabel={'...'}
@@ -42,12 +43,12 @@ const Users = (props) => {
           subContainerClassName={'pages pagination'}
           activeClassName={'active'}
           onPageChange={(page) => {
-            props.onSelectedPage(page);
+            onSelectedPage(page)
           }}
         />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Users;
+export default Users
