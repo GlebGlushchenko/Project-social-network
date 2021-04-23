@@ -1,6 +1,7 @@
 import { updateNewMessageTextAC, addMessageAC, removeMessageAC } from '../../redux/messeges-reducer'
 import { connect } from 'react-redux'
 import MessagesPage from '../MessagesPage'
+import { withAuthRedirect } from '../../../hoc/AuthRedirect'
 
 const mapStateToProps = (state) => {
   return {
@@ -11,20 +12,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    removeMessage: (indexe) => {
-      dispatch(removeMessageAC(indexe))
-    },
-    addMessage: (text) => {
-      dispatch(addMessageAC(text))
-    },
-    updateMessageText: (text) => {
-      dispatch(updateNewMessageTextAC(text))
-    },
-  }
-}
-
-const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(MessagesPage)
+const MessagesContainer = connect(mapStateToProps, {
+  removeMessageAC,
+  addMessageAC,
+  updateNewMessageTextAC,
+})(withAuthRedirect(MessagesPage))
 
 export default MessagesContainer

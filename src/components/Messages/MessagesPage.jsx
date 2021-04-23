@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router'
 
 import Messages from './Messages'
 import MessagesUsers from './MessagesUsers'
@@ -7,22 +8,21 @@ const MessagesPage = ({
   masseagesUsers,
   messagesText,
   newMessageText,
-  addMessage,
-  removeMessage,
-  updateMessageText,
+  addMessageAC,
+  removeMessageAC,
+  updateNewMessageTextAC,
   isAuth,
 }) => {
   const newMessageTextRef = React.useRef()
-  console.log(isAuth)
 
   const onAddMessage = () => {
     if (newMessageTextRef.current.value) {
-      addMessage(newMessageTextRef.current.value)
+      addMessageAC(newMessageTextRef.current.value)
     } else alert('ENTER TEXT')
   }
 
   const onChangeNewMessagetext = () => {
-    updateMessageText(newMessageTextRef.current.value.trim())
+    updateNewMessageTextAC(newMessageTextRef.current.value.trim())
   }
 
   const handlerKeyUp = (event) => {
@@ -30,6 +30,8 @@ const MessagesPage = ({
       onAddMessage()
     }
   }
+
+  if (isAuth === false) return <Redirect to="/login" />
 
   return (
     <section className="messages__section">
@@ -40,7 +42,7 @@ const MessagesPage = ({
             <MessagesUsers masseagesUsers={masseagesUsers} />
           </div>
           <div className="messages__content">
-            <Messages messagesText={messagesText} removeMessage={removeMessage} />
+            <Messages messagesText={messagesText} removeMessage={removeMessageAC} />
 
             <div className="messages__controle">
               <input

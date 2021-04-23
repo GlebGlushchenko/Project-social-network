@@ -16,7 +16,6 @@ const initialState = {
   isFetching: false,
   setDisabledBtn: [],
 }
-console.log(initialState.setDisabledBtn)
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {

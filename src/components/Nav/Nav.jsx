@@ -1,13 +1,13 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import logoNav from '../../assets/img/share.png';
-import userAvatar from '../../assets/img/user.png';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import logoNav from '../../assets/img/share.png'
+import userAvatar from '../../assets/img/user.png'
 
 const Nav = (props) => {
-  const [test, setTest] = React.useState(false);
+  const [test, setTest] = React.useState(false)
   const onToogleMenu = () => {
-    setTest(!test);
-  };
+    setTest(!test)
+  }
   return (
     <div className="nav__wrapper">
       <div className="container">
@@ -65,7 +65,7 @@ const Nav = (props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav

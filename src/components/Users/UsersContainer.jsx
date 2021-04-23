@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withAuthRedirect } from '../../hoc/AuthRedirect'
 
 import {
   getUsersThunkCreator,
@@ -17,6 +18,7 @@ const mapStateToProps = (state) => {
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
     setDisabledBtn: state.usersPage.setDisabledBtn,
+    isAuth: state.auth.isAuth,
   }
 }
 
@@ -26,7 +28,6 @@ class UsersContainer extends React.Component {
   }
   onSelectedPage = ({ selected }) => {
     let page = selected + 1
-    // this.props.getUsersThunkCreator(page, this.props.pageSize)
     this.props.getUserSelectPageThunkCreator(page, this.props.pageSize)
   }
 
@@ -44,4 +45,4 @@ export default connect(mapStateToProps, {
   getUserSelectPageThunkCreator,
   followUserThunkCreator,
   unFollowUserThunkCreator,
-})(UsersContainer)
+})(withAuthRedirect(UsersContainer))

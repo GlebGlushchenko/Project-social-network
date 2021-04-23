@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import ProfileContent from './ProfilePost/ProfileContent';
-import ProfilePostContainer from './ProfilePost/Container/ProfilePostContainer';
+import ProfileContent from './ProfilePost/ProfileContent'
+import ProfilePostContainer from './ProfilePost/Container/ProfilePostContainer'
 
 const Profile = (props) => {
   return (
@@ -13,7 +13,7 @@ const Profile = (props) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile
