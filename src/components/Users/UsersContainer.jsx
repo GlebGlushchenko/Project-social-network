@@ -18,7 +18,6 @@ const mapStateToProps = (state) => {
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
     setDisabledBtn: state.usersPage.setDisabledBtn,
-    isAuth: state.auth.isAuth,
   }
 }
 

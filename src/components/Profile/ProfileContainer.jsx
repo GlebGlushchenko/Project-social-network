@@ -20,12 +20,11 @@ class ProfileContainer extends React.Component {
   }
 }
 
-const mapDispatchToProps = (state) => ({
+const mapStateToProps = (state) => ({
   profileData: state.profilePage.profile,
   userID: state.auth.userID,
-  isAuth: state.auth.isAuth,
 })
 
-export default connect(mapDispatchToProps, { getProfile })(
+export default connect(mapStateToProps, { getProfile })(
   withRouter(withAuthRedirect(ProfileContainer)),
 )

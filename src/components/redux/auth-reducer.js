@@ -46,7 +46,7 @@ export const getAuthMe = () => {
             }),
           ),
         )
-      } else alert('ERROR')
+      }
     })
   }
 }

@@ -8,7 +8,6 @@ const mapStateToProps = (state) => {
     masseagesUsers: state.messagesPage.masseagesUsers,
     messagesText: state.messagesPage.messagesText,
     newMessageText: state.messagesPage.newMessageText,
-    isAuth: state.auth.isAuth,
   }
 }
 
