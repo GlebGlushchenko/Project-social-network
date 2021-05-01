@@ -10,7 +10,7 @@ import { Redirect, Route } from 'react-router-dom'
 import MessagesContainer from './components/Messages/Container/MessagesContainer'
 import ProfileContainer from './components/Profile/ProfileContainer'
 
-function App(isAuth) {
+const App = (isAuth) => {
   return (
     <div className="App">
       <NavContainer />
