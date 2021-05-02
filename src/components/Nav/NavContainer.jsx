@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { usersAPI } from '../../api/api'
 import { getAuthMe } from '../redux/auth-reducer'
 
 import Nav from './Nav'
