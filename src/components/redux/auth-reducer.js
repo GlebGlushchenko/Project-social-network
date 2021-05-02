@@ -1,4 +1,4 @@
-import { usersAPI } from '../../api/api'
+import { profileAPI } from '../../api/api'
 import { setUserProfile } from './profile-reducer'
 
 const SET_USER_DATA = 'SET_USER_DATA'
@@ -34,14 +34,14 @@ export const setAuthUserData = (userID, email, login) => ({
 //THUNK
 export const getAuthMe = () => {
   return (dispatch) => {
-    usersAPI.getAuthMe().then((data) => {
+    profileAPI.getAuthMe().then((data) => {
       if (data.resultCode === 0) {
         dispatch(
           setAuthUserData(
             data.data.id,
             data.data.email,
             data.data.login,
-            usersAPI.getProfileUser(data.data.id).then((data) => {
+            profileAPI.getProfileUser(data.data.id).then((data) => {
               dispatch(setUserProfile(data))
             }),
           ),

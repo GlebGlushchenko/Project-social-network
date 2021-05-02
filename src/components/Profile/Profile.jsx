@@ -8,7 +8,12 @@ const Profile = (props) => {
     <section className="profile__wrapper">
       <div className="container">
         <div className="profile__content__wrapper">
-          <ProfileContent userID={props.userID} profileData={props.profileData} />
+          <ProfileContent
+            userID={props.userID}
+            profileData={props.profileData}
+            status={props.status}
+            updateStatus={props.updateStatus}
+          />
           <ProfilePostContainer />
         </div>
       </div>

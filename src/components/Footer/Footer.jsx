@@ -1,5 +1,5 @@
-import React from 'react';
-import logo2 from '../../assets/img/myLogo2.png';
+import React from 'react'
+import logo2 from '../../assets/img/myLogo2.png'
 
 const Footer = () => {
   return (
@@ -15,7 +15,7 @@ const Footer = () => {
         <img width="50px" src={logo2} alt="" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

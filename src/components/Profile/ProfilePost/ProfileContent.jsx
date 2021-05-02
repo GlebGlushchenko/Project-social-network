@@ -2,8 +2,9 @@ import React from 'react'
 import userAvatar from '../../../assets/img/user.png'
 
 import Preloader from '../../../assets/util/Preloader'
+import ProfileStatus from '../ProfielStatus'
 
-const ProfileContent = ({ profileData, userID }) => {
+const ProfileContent = ({ profileData, status, updateStatus }) => {
   return (
     <div className="profile__content-wrapper">
       {!profileData ? (
@@ -22,15 +23,7 @@ const ProfileContent = ({ profileData, userID }) => {
 
           <div className="profile__description">
             <ul className="profile__description-list">
-              <li className="profile__description-list-item">
-                Status:
-                <b>
-                  {profileData.aboutMe}
-                  <span role="img" aria-label="star">
-                    &#11088;
-                  </span>
-                </b>
-              </li>
+              <ProfileStatus updateStatus={updateStatus} status={status} />
               <li className="profile__description-list-item">
                 County:
                 <b>

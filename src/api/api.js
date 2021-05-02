@@ -12,6 +12,9 @@ export const usersAPI = {
       .get(`users?page=${currentPage}&count=${pageSize}`)
       .then((response) => response.data)
   },
+}
+
+export const profileAPI = {
   getProfile(userId) {
     return instance.get(`profile/${userId}`).then((response) => response.data)
   },
@@ -21,6 +24,19 @@ export const usersAPI = {
   getProfileUser(id) {
     return instance.get(`profile/${id}`).then((response) => response.data)
   },
+
+  updateStatus(statusText) {
+    return instance.put(`/profile/status`, {
+      status: statusText,
+    })
+  },
+
+  getStatus(userId) {
+    return instance.get(`/profile/status/${userId}`)
+  },
+}
+
+export const followAPI = {
   getFollow(index) {
     return instance.post(`/follow/${index}`, {})
   },
