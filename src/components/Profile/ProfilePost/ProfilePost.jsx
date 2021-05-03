@@ -1,5 +1,6 @@
-import React from 'react';
-import Post from './Post';
+import React from 'react'
+import Post from './Post'
+import { handlerKeyUp } from '../../../assets/util/handlerKeyUp'
 
 const ProfilePost = ({
   postText,
@@ -10,31 +11,25 @@ const ProfilePost = ({
   addLike,
   removeLike,
 }) => {
-  const newPostTextRef = React.useRef();
+  const newPostTextRef = React.useRef()
 
   const onAddPost = () => {
-    let text = newPostTextRef.current.value;
+    let text = newPostTextRef.current.value
     if (text) {
-      addPost(text);
-    } else alert('ENTER TEXT');
-  };
+      addPost(text)
+    } else alert('ENTER TEXT')
+  }
 
   const onChangeTextPost = () => {
-    changePostText(newPostTextRef.current.value.trim());
-  };
-
-  const handlerKeyUp = (e) => {
-    if (e.keyCode === 13) {
-      onAddPost();
-    }
-  };
+    changePostText(newPostTextRef.current.value.trim())
+  }
 
   return (
     <div className="profile__post">
       <div className="profile__post__title">.Post</div>
       <div className="profile__control-post">
         <input
-          onKeyUp={handlerKeyUp}
+          onKeyUp={(e) => handlerKeyUp(e, onAddPost)}
           value={newPostText}
           onChange={onChangeTextPost}
           ref={newPostTextRef}
@@ -67,7 +62,7 @@ const ProfilePost = ({
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProfilePost;
+export default ProfilePost

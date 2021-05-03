@@ -1,49 +1,64 @@
 import React from 'react'
 
-const ProfileStatus = ({ status, updateStatus }) => {
-  const [inputVisabiliti, setInputVisabiliti] = React.useState(true)
-  const [statusText, setStatusText] = React.useState('')
+import { handlerKeyUp } from '../../assets/util/handlerKeyUp'
 
-  const handlerVisabilitiInput = () => {
-    setInputVisabiliti(!inputVisabiliti)
+class ProfileStatus extends React.Component {
+  state = {
+    editMode: false,
+    statusText: this.props.status,
   }
 
-  const handlerInputText = (e) => {
-    setStatusText(e.currentTarget.value)
-  }
-
-  const handlerBlur = () => {
-    setInputVisabiliti((prev) => {
-      return {
-        ...prev,
-        inputVisabiliti: false,
-      }
+  activateEditMode = () => {
+    this.setState({
+      editMode: true,
     })
-    updateStatus(statusText)
   }
-  return (
-    <li onDoubleClick={handlerVisabilitiInput} className="profile__description-list-item">
-      Status:
-      <b>
-        {inputVisabiliti ? (
-          status
-        ) : (
-          <input
-            autoFocus={true}
-            onBlur={handlerBlur}
-            onChange={(e) => handlerInputText(e)}
-            value={statusText}
-            placeholder={'Enter your new status text'}
-            type="text"
-          />
-        )}
 
-        <span role="img" aria-label="star">
-          &#11088;
-        </span>
-      </b>
-    </li>
-  )
+  deactivateEditMode = () => {
+    this.setState({
+      editMode: false,
+    })
+    this.props.updateStatus(this.state.statusText)
+  }
+
+  onSatusChange = (e) => {
+    this.setState({
+      statusText: e.currentTarget.value,
+    })
+  }
+  componentDidUpdate(prevProps, pPrevState) {
+    if (prevProps.status !== this.props.status) {
+      this.setState({ statusText: this.props.status })
+    }
+  }
+
+  render() {
+    return (
+      <li onDoubleClick={this.activateEditMode} className="profile__description-list-item">
+        Status:
+        <b>
+          {!this.state.editMode && (
+            <span>{!this.props.status ? '-------' : this.props.status}</span>
+          )}
+          {this.state.editMode && (
+            <input
+              onKeyUp={(e) => handlerKeyUp(e, this.deactivateEditMode)}
+              autoFocus={true}
+              onBlur={this.deactivateEditMode}
+              onChange={this.onSatusChange}
+              value={this.state.statusText}
+              placeholder={'Enter your new status text'}
+              type="text"
+            />
+          )}
+
+          <span role="img" aria-label="star">
+            &#11088;
+          </span>
+        </b>
+      </li>
+    )
+  }
 }
 
 export default ProfileStatus

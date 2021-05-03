@@ -13,7 +13,6 @@ class ProfileContainer extends React.Component {
     if (!id) {
       id = 9038
     }
-    console.log(this.props.match.params.userId)
     this.props.getProfile(id)
     this.props.getStatus(id)
   }

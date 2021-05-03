@@ -86,7 +86,6 @@ export const getStatusAC = (status) => ({ type: GET_STATUS, status })
 
 //THUNK
 export const getProfile = (userId) => {
-  console.log(userId)
   return (dispatch) => {
     profileAPI.getProfile(userId).then((data) => {
       dispatch(setUserProfile(data))
@@ -97,7 +96,6 @@ export const getProfile = (userId) => {
 export const getStatus = (userId) => {
   return (dispatch) => {
     profileAPI.getStatus(userId).then(({ data }) => {
-      console.log(data)
       dispatch(getStatusAC(data))
     })
   }
@@ -106,7 +104,7 @@ export const getStatus = (userId) => {
 export const updateStatus = (status) => {
   return (dispatch) => {
     profileAPI.updateStatus(status).then((data) => {
-      if (data.resultCode === 0) {
+      if (data.data.resultCode === 0) {
         dispatch(getStatusAC(status))
       }
     })

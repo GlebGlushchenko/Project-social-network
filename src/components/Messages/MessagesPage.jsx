@@ -3,6 +3,7 @@ import { Redirect } from 'react-router'
 
 import Messages from './Messages'
 import MessagesUsers from './MessagesUsers'
+import { handlerKeyUp } from '../../assets/util/handlerKeyUp'
 
 const MessagesPage = ({
   masseagesUsers,
@@ -25,12 +26,6 @@ const MessagesPage = ({
     updateNewMessageTextAC(newMessageTextRef.current.value.trim())
   }
 
-  const handlerKeyUp = (event) => {
-    if (event.keyCode === 13) {
-      onAddMessage()
-    }
-  }
-
   if (isAuth === false) return <Redirect to="/login" />
 
   return (
@@ -46,7 +41,7 @@ const MessagesPage = ({
 
             <div className="messages__controle">
               <input
-                onKeyUp={handlerKeyUp}
+                onKeyUp={(e) => handlerKeyUp(e, onAddMessage)}
                 onChange={onChangeNewMessagetext}
                 value={newMessageText}
                 ref={newMessageTextRef}
