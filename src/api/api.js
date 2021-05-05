@@ -44,3 +44,13 @@ export const followAPI = {
     return instance.delete(`/follow/${index}`)
   },
 }
+
+export const authorizationAPI = {
+  login({ login, password, rememberMe }) {
+    return instance.post(`/auth/login`, {
+      email: login,
+      password,
+      rememberMe,
+    })
+  },
+}

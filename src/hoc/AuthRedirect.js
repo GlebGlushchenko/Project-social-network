@@ -5,10 +5,12 @@ import { Redirect } from 'react-router'
 export const withAuthRedirect = (Component) => {
   const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
+    email: state.auth.email,
   })
   class RedirectComponent extends React.Component {
     render() {
       if (!this.props.isAuth) return <Redirect to="/login" />
+      // if (this.props.email) return <Redirect to="/profile" />
 
       return <Component {...this.props} />
     }

@@ -9,6 +9,7 @@ import Login from './components/Login/Login'
 import { Redirect, Route } from 'react-router-dom'
 import MessagesContainer from './components/Messages/Container/MessagesContainer'
 import ProfileContainer from './components/Profile/ProfileContainer'
+import LoginContainer from './components/Login/LoginContainer'
 
 const App = (isAuth) => {
   return (
@@ -18,7 +19,7 @@ const App = (isAuth) => {
       <Route path="/users" render={() => <UsersContainer />} />
       <Route path="/messages" render={() => <MessagesContainer />} />
       <Route path="/news" render={News} />
-      <Route path="/login" render={Login} />
+      <Route path="/login" render={() => <LoginContainer />} />
       <Footer />
     </div>
   )

@@ -1,8 +1,11 @@
 import React from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup'
+import { authorizationAPI } from '../../api/api'
+import { handlerKeyUp } from '../../assets/util/handlerKeyUp'
 
-const Login = () => {
+const Login = ({ isAuth, loginMe }) => {
+  console.log(isAuth)
   const validationsSchema = yup.object().shape({
     password: yup.string().typeError('Должна быть строка').required('Обязательна для заполнения'),
     login: yup.string().email('Введите Login').required('Обязательна для заполнения'),
@@ -10,15 +13,18 @@ const Login = () => {
 
   return (
     <Formik
-      initialValues={{ login: '', password: '' }}
+      initialValues={{ login: '', password: '', rememberMe: false }}
       validateOnBlur
       onSubmit={(data) => {
         console.log(data)
+
+        loginMe(data)
       }}
       validationSchema={validationsSchema}>
       {(props) => {
         return (
           <form onSubmit={props.handleSubmit} className="login__form-wrapper">
+            {isAuth && <h1>ВЫ УСПЕШНО АВТОРИЗОВАЛИСЬ</h1>}
             <h2 className="login__form-title">.Login</h2>
             <input
               name={'login'}
@@ -44,8 +50,13 @@ const Login = () => {
             )}
 
             <label>
-              <input className="login__form-check" type="checkbox" />
-              Rermember me
+              <input
+                name={'rememberMe'}
+                onChange={props.handleChange}
+                className="login__form-check"
+                type="checkbox"
+              />
+              Remember me
             </label>
 
             <button

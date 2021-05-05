@@ -1,4 +1,4 @@
-import { profileAPI } from '../../api/api'
+import { authorizationAPI, profileAPI } from '../../api/api'
 import { setUserProfile } from './profile-reducer'
 
 const SET_USER_DATA = 'SET_USER_DATA'
@@ -47,6 +47,14 @@ export const getAuthMe = () => {
           ),
         )
       }
+    })
+  }
+}
+
+export const loginMe = (data) => {
+  return (dispatch) => {
+    authorizationAPI.login(data).then((response) => {
+      if (response.data.resultCode === 0) alert('YES')
     })
   }
 }
