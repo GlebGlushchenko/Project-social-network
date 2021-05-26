@@ -2,12 +2,16 @@ import { authorizationAPI, profileAPI } from '../../api/api'
 import { setUserProfile } from './profile-reducer'
 
 const SET_USER_DATA = 'SET_USER_DATA'
+const SET_STATUS_CODE = 'SET_STATUS_CODE'
+const SET_AUTH_ME = 'SET_AUTH_ME'
+const SET_LOG_OUT = 'SET_LOG_OUT'
 
 const initialState = {
   userID: null,
   email: null,
   login: null,
   isAuth: false,
+  statusCode: null,
 }
 
 const authReducer = (state = initialState, action) => {
@@ -19,6 +23,20 @@ const authReducer = (state = initialState, action) => {
 
         isAuth: !state.isAuth,
       }
+    case SET_STATUS_CODE:
+      return {
+        ...state,
+        statusCode: action.statusCode,
+      }
+
+    case SET_AUTH_ME:
+      return {
+        isAuth: true,
+      }
+    case SET_LOG_OUT:
+      return {
+        isAuth: false,
+      }
 
     default:
       return state
@@ -29,6 +47,10 @@ export const setAuthUserData = (userID, email, login) => ({
   type: SET_USER_DATA,
   data: { userID, email, login },
 })
+
+const setStatusCode = (statusCode) => ({ type: SET_STATUS_CODE, statusCode })
+const setAuth = () => ({ type: SET_AUTH_ME })
+const setLogOut = () => ({ type: SET_LOG_OUT })
 //ACTION CREATOR
 
 //THUNK
@@ -54,7 +76,18 @@ export const getAuthMe = () => {
 export const loginMe = (data) => {
   return (dispatch) => {
     authorizationAPI.login(data).then((response) => {
-      if (response.data.resultCode === 0) alert('YES')
+      if (response.data.resultCode === 0) {
+        dispatch(setAuth())
+      }
+      dispatch(setStatusCode(response.data.resultCode))
+    })
+  }
+}
+
+export const logOut = () => {
+  return (dispatch) => {
+    authorizationAPI.logOut().then(() => {
+      dispatch(setLogOut())
     })
   }
 }

@@ -8,6 +8,8 @@ const Nav = (props) => {
   const onToogleMenu = () => {
     setTest(!test)
   }
+
+  const handlerLogOut = () => props.logOut()
   return (
     <div className="nav__wrapper">
       <div className="container">
@@ -59,9 +61,13 @@ const Nav = (props) => {
                 <img src={userAvatar} alt="Avatar" />
               </div>
             ) : null}
-
             <div className="nav__login-name">{props.isAuth ? props.login : 'Login'}</div>
           </NavLink>
+          {props.isAuth && (
+            <div className="logOut" onClick={handlerLogOut}>
+              .LOGOUT
+            </div>
+          )}
         </div>
       </div>
     </div>

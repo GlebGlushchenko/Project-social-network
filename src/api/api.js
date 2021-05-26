@@ -53,4 +53,7 @@ export const authorizationAPI = {
       rememberMe,
     })
   },
+  logOut() {
+    return instance.delete(`/auth/login`)
+  },
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getAuthMe } from '../redux/auth-reducer'
+import { getAuthMe, logOut } from '../redux/auth-reducer'
 
 import Nav from './Nav'
 
@@ -18,4 +18,4 @@ const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
 })
 
-export default connect(mapStateToProps, { getAuthMe })(NavContainer)
+export default connect(mapStateToProps, { getAuthMe, logOut })(NavContainer)

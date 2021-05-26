@@ -1,11 +1,9 @@
 import React from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup'
-import { authorizationAPI } from '../../api/api'
-import { handlerKeyUp } from '../../assets/util/handlerKeyUp'
+import { Redirect } from 'react-router'
 
-const Login = ({ isAuth, loginMe }) => {
-  console.log(isAuth)
+const Login = ({ isAuth, loginMe, statusCode }) => {
   const validationsSchema = yup.object().shape({
     password: yup.string().typeError('Должна быть строка').required('Обязательна для заполнения'),
     login: yup.string().email('Введите Login').required('Обязательна для заполнения'),
@@ -15,13 +13,16 @@ const Login = ({ isAuth, loginMe }) => {
     <Formik
       initialValues={{ login: '', password: '', rememberMe: false }}
       validateOnBlur
-      onSubmit={(data) => {
-        console.log(data)
-
+      onSubmit={(data, value) => {
         loginMe(data)
+
+        // if (statusCode === 10)
+        //   value.setStatus({ sent: true, msg: 'Message has been sent! Thanks!' })
       }}
       validationSchema={validationsSchema}>
       {(props) => {
+        // if (props.status !== undefined) console.log(props.status.msg)
+        if (isAuth) return <Redirect to="/profile" />
         return (
           <form onSubmit={props.handleSubmit} className="login__form-wrapper">
             {isAuth && <h1>ВЫ УСПЕШНО АВТОРИЗОВАЛИСЬ</h1>}
