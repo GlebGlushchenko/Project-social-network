@@ -61,7 +61,7 @@ const Nav = (props) => {
                 <img src={userAvatar} alt="Avatar" />
               </div>
             ) : null}
-            <div className="nav__login-name">{props.isAuth ? props.login : 'Login'}</div>
+            <div className="nav__login-name">{props.isAuth ? props.login : '.LOGIN'}</div>
           </NavLink>
           {props.isAuth && (
             <div className="logOut" onClick={handlerLogOut}>

@@ -5,13 +5,13 @@ import NavContainer from './components/Nav/NavContainer'
 
 import News from './components/News/News'
 import UsersContainer from './components/Users/UsersContainer'
-import Login from './components/Login/Login'
-import { Redirect, Route } from 'react-router-dom'
+
+import { Route } from 'react-router-dom'
 import MessagesContainer from './components/Messages/Container/MessagesContainer'
 import ProfileContainer from './components/Profile/ProfileContainer'
 import LoginContainer from './components/Login/LoginContainer'
 
-const App = (isAuth) => {
+const App = () => {
   return (
     <div className="App">
       <NavContainer />
