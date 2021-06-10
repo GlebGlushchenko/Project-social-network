@@ -32,27 +32,8 @@ const LoginForm = ({ isAuth, handleSubmit }) => {
       <button type="submit" className="login__form-btn">
         .LOGIN
       </button>
-
-      {/* <input
-            name={'password'}
-            className="login__form-passwd"
-            type="password"
-            placeholder="Password"
-          />
-
-          <label>
-            <input name={'rememberMe'} className="login__form-check" type="checkbox" />
-            Remember me
-          </label> */}
-
-      {/* <button type="submit" className="login__form-btn">
-            .LOGIN
-          </button> */}
     </form>
   )
 }
 
-// LoginForm = reduxForm({
-//   form: 'loginPage',
-// })(LoginForm)
 export default reduxForm({ form: 'loginForm' })(LoginForm)

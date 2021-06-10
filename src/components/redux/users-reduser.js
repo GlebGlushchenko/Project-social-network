@@ -106,7 +106,7 @@ export const followUserThunkCreator = (usersId, index) => {
   return (dispatch) => {
     dispatch(setDisabledBtnAC(true, usersId))
     followAPI.getFollow(index).then((response) => {
-      if (!response.data.resultCode) {
+      if (response.data.resultCode === 0) {
         dispatch(followUser(index))
       }
       dispatch(setDisabledBtnAC(false, usersId))

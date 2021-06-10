@@ -1,14 +1,12 @@
 import React from 'react'
 import { Redirect } from 'react-router'
 import LoginForm from './LoginForm'
-import loginMe from '../redux/auth-reducer'
 
-const Login = ({ isAuth, loginMe, statusCode }) => {
+const Login = ({ isAuth, loginMe }) => {
   if (isAuth) return <Redirect to="/profile" />
+
   const onSubmit = (formData) => {
     loginMe(formData)
-
-    console.log(formData)
   }
 
   return (

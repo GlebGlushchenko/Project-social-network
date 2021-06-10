@@ -1,6 +1,8 @@
 import React from 'react'
+import { Field, reduxForm } from 'redux-form'
 import Post from './Post'
 import { handlerKeyUp } from '../../../assets/util/handlerKeyUp'
+import AddPostForm from '../../Forms/AddPostForm'
 
 const ProfilePost = ({
   postText,
@@ -23,12 +25,16 @@ const ProfilePost = ({
   const onChangeTextPost = () => {
     changePostText(newPostTextRef.current.value.trim())
   }
+  const onSubmit = (formData) => {
+    console.log(formData)
+  }
 
   return (
     <div className="profile__post">
       <div className="profile__post__title">.Post</div>
       <div className="profile__control-post">
-        <input
+        <AddPostForm onSubmit={onSubmit} />
+        {/* <input
           onKeyUp={(e) => handlerKeyUp(e, onAddPost)}
           value={newPostText}
           onChange={onChangeTextPost}
@@ -39,7 +45,7 @@ const ProfilePost = ({
         />
         <button onClick={onAddPost} className="profile__post-btn">
           Post
-        </button>
+        </button> */}
       </div>
       <div className="profile__post-wrapper">
         <ul className="profile__post-list">
@@ -64,5 +70,25 @@ const ProfilePost = ({
     </div>
   )
 }
+// const AddPostForm = ({ handleSubmit }) => {
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <div className="profile__post__title">.Post</div>
+//       <div className="profile__control-post">
+//         <Field
+//           component={'input'}
+//           className="profile__post-input"
+//           placeholder="enter post text..."
+//           type="text"
+//         />
+//         <button type="submit" className="profile__post-btn">
+//           Post
+//         </button>
+//       </div>
+//     </form>
+//   )
+// }
+
+// export default reduxForm({ form: 'addPostForm' })(AddPostForm)
 
 export default ProfilePost
