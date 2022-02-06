@@ -8,7 +8,6 @@ const News = ({ news, getNewsThunkCreater }) => {
     getNewsThunkCreater()
   }, [])
 
-  console.log(news)
   const style = {
     h1: {
       fontSize: '30px',
@@ -29,6 +28,9 @@ const News = ({ news, getNewsThunkCreater }) => {
                 <h2>{item.title}</h2>
                 <img className="newsImg" src={item.urlToImage} alt="" />
                 <p>{item.description}</p>
+                <a target="_blank" href={item.url}>
+                  {item.source.name}
+                </a>
               </div>
             )
           })}
