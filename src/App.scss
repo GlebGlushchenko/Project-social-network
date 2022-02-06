@@ -5,8 +5,11 @@
 @import './components/Profile/profile.scss';
 @import './components/Profile//ProfilePost/profilePost.scss';
 @import './components/Login/login.scss';
+@import './components//News/news.scss';
+@import './components/Media/Video.scss';
 
 //Pagination
+
 .pagination {
   margin: 15px auto;
   display: flex;

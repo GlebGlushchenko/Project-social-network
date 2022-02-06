@@ -1,0 +1,28 @@
+.news_wprapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content_wrapper {
+  max-height: 650px;
+  overflow: auto;
+}
+
+.news {
+  margin: 20px 0px;
+}
+
+.news_page {
+  text-align: center;
+}
+
+.news_page-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.newsImg {
+  width: 300px;
+  height: auto;
+}

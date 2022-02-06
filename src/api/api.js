@@ -5,6 +5,16 @@ const instance = axios.create({
   headers: { 'API-KEY': '537e1b34-1aa6-47d7-a570-77c5f21c5ab2' },
   withCredentials: true,
 })
+const secondInstance = axios.create({
+  baseURL:
+    'https://newsapi.org/v2/top-headlines?country=ru&apiKey=bb5af496690a467eb59db91b2c7dd005',
+})
+
+export const newsApi = {
+  getNews() {
+    return secondInstance.get().then((res) => res.data)
+  },
+}
 
 export const usersAPI = {
   getUsers(currentPage, pageSize) {

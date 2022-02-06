@@ -1,0 +1,32 @@
+.video_item {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  margin-bottom: 20px;
+}
+.video {
+  width: 100%;
+  text-align: center;
+}
+.video_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.video_title {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.video_content {
+  display: flex;
+  flex-direction: column;
+
+  height: 600px;
+  overflow: auto;
+}

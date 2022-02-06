@@ -53,6 +53,9 @@ const Nav = (props) => {
             <li className="nav__item">
               <NavLink to="/news">.News</NavLink>
             </li>
+            <li className="nav__item">
+              <NavLink to="/video">.Video</NavLink>
+            </li>
           </ul>
 
           <NavLink className="nav__login" to="login">
